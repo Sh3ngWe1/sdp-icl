@@ -1,0 +1,1006 @@
+[
+    {
+        "file_name": "sdp_qa_llama_sanitized_n100_results.jsonl",
+        "total_questions_evaluated": 500,
+        "metrics": [
+            {
+                "N": 5,
+                "epsilon": 0.1,
+                "EM": 77.47,
+                "F1": 87.88,
+                "avg_time_sec": 12.7
+            },
+            {
+                "N": 5,
+                "epsilon": 0.5,
+                "EM": 77.85,
+                "F1": 88.12,
+                "avg_time_sec": 12.7
+            },
+            {
+                "N": 5,
+                "epsilon": 1.0,
+                "EM": 77.92,
+                "F1": 88.13,
+                "avg_time_sec": 12.7
+            },
+            {
+                "N": 5,
+                "epsilon": 3.0,
+                "EM": 78.37,
+                "F1": 88.39,
+                "avg_time_sec": 12.7
+            },
+            {
+                "N": 5,
+                "epsilon": 5.0,
+                "EM": 78.4,
+                "F1": 88.37,
+                "avg_time_sec": 12.7
+            },
+            {
+                "N": 5,
+                "epsilon": 10.0,
+                "EM": 78.32,
+                "F1": 88.36,
+                "avg_time_sec": 12.7
+            },
+            {
+                "N": 5,
+                "epsilon": "inf",
+                "EM": 78.33,
+                "F1": 88.39,
+                "avg_time_sec": 12.7
+            },
+            {
+                "N": 10,
+                "epsilon": 0.1,
+                "EM": 77.0,
+                "F1": 87.56,
+                "avg_time_sec": 21.25
+            },
+            {
+                "N": 10,
+                "epsilon": 0.5,
+                "EM": 78.18,
+                "F1": 88.24,
+                "avg_time_sec": 21.25
+            },
+            {
+                "N": 10,
+                "epsilon": 1.0,
+                "EM": 78.39,
+                "F1": 88.33,
+                "avg_time_sec": 21.25
+            },
+            {
+                "N": 10,
+                "epsilon": 3.0,
+                "EM": 78.47,
+                "F1": 88.35,
+                "avg_time_sec": 21.25
+            },
+            {
+                "N": 10,
+                "epsilon": 5.0,
+                "EM": 78.45,
+                "F1": 88.41,
+                "avg_time_sec": 21.25
+            },
+            {
+                "N": 10,
+                "epsilon": 10.0,
+                "EM": 78.5,
+                "F1": 88.39,
+                "avg_time_sec": 21.25
+            },
+            {
+                "N": 10,
+                "epsilon": "inf",
+                "EM": 78.49,
+                "F1": 88.33,
+                "avg_time_sec": 21.25
+            },
+            {
+                "N": 20,
+                "epsilon": 0.1,
+                "EM": 77.36,
+                "F1": 87.66,
+                "avg_time_sec": 39.93
+            },
+            {
+                "N": 20,
+                "epsilon": 0.5,
+                "EM": 78.53,
+                "F1": 88.4,
+                "avg_time_sec": 39.93
+            },
+            {
+                "N": 20,
+                "epsilon": 1.0,
+                "EM": 78.51,
+                "F1": 88.38,
+                "avg_time_sec": 39.93
+            },
+            {
+                "N": 20,
+                "epsilon": 3.0,
+                "EM": 78.45,
+                "F1": 88.32,
+                "avg_time_sec": 39.93
+            },
+            {
+                "N": 20,
+                "epsilon": 5.0,
+                "EM": 78.45,
+                "F1": 88.29,
+                "avg_time_sec": 39.93
+            },
+            {
+                "N": 20,
+                "epsilon": 10.0,
+                "EM": 78.46,
+                "F1": 88.33,
+                "avg_time_sec": 39.93
+            },
+            {
+                "N": 20,
+                "epsilon": "inf",
+                "EM": 78.5,
+                "F1": 88.3,
+                "avg_time_sec": 39.93
+            },
+            {
+                "N": 50,
+                "epsilon": 0.1,
+                "EM": 78.24,
+                "F1": 88.23,
+                "avg_time_sec": 96.94
+            },
+            {
+                "N": 50,
+                "epsilon": 0.5,
+                "EM": 78.46,
+                "F1": 88.25,
+                "avg_time_sec": 96.94
+            },
+            {
+                "N": 50,
+                "epsilon": 1.0,
+                "EM": 78.46,
+                "F1": 88.26,
+                "avg_time_sec": 96.94
+            },
+            {
+                "N": 50,
+                "epsilon": 3.0,
+                "EM": 78.47,
+                "F1": 88.26,
+                "avg_time_sec": 96.94
+            },
+            {
+                "N": 50,
+                "epsilon": 5.0,
+                "EM": 78.45,
+                "F1": 88.25,
+                "avg_time_sec": 96.94
+            },
+            {
+                "N": 50,
+                "epsilon": 10.0,
+                "EM": 78.44,
+                "F1": 88.22,
+                "avg_time_sec": 96.94
+            },
+            {
+                "N": 50,
+                "epsilon": "inf",
+                "EM": 78.44,
+                "F1": 88.25,
+                "avg_time_sec": 96.94
+            },
+            {
+                "N": 100,
+                "epsilon": 0.1,
+                "EM": 78.36,
+                "F1": 88.19,
+                "avg_time_sec": 189.01
+            },
+            {
+                "N": 100,
+                "epsilon": 0.5,
+                "EM": 78.38,
+                "F1": 88.21,
+                "avg_time_sec": 189.01
+            },
+            {
+                "N": 100,
+                "epsilon": 1.0,
+                "EM": 78.33,
+                "F1": 88.2,
+                "avg_time_sec": 189.01
+            },
+            {
+                "N": 100,
+                "epsilon": 3.0,
+                "EM": 78.3,
+                "F1": 88.2,
+                "avg_time_sec": 189.01
+            },
+            {
+                "N": 100,
+                "epsilon": 5.0,
+                "EM": 78.3,
+                "F1": 88.2,
+                "avg_time_sec": 189.01
+            },
+            {
+                "N": 100,
+                "epsilon": 10.0,
+                "EM": 78.3,
+                "F1": 88.19,
+                "avg_time_sec": 189.01
+            },
+            {
+                "N": 100,
+                "epsilon": "inf",
+                "EM": 78.29,
+                "F1": 88.18,
+                "avg_time_sec": 189.01
+            }
+        ]
+    },
+    {
+        "file_name": "sdp_qa_llama_standard_n100_results.jsonl",
+        "total_questions_evaluated": 500,
+        "metrics": [
+            {
+                "N": 5,
+                "epsilon": 0.1,
+                "EM": 77.59,
+                "F1": 88.14,
+                "avg_time_sec": 12.21
+            },
+            {
+                "N": 5,
+                "epsilon": 0.5,
+                "EM": 78.24,
+                "F1": 88.5,
+                "avg_time_sec": 12.21
+            },
+            {
+                "N": 5,
+                "epsilon": 1.0,
+                "EM": 78.46,
+                "F1": 88.67,
+                "avg_time_sec": 12.21
+            },
+            {
+                "N": 5,
+                "epsilon": 3.0,
+                "EM": 78.89,
+                "F1": 88.94,
+                "avg_time_sec": 12.21
+            },
+            {
+                "N": 5,
+                "epsilon": 5.0,
+                "EM": 78.99,
+                "F1": 88.98,
+                "avg_time_sec": 12.21
+            },
+            {
+                "N": 5,
+                "epsilon": 10.0,
+                "EM": 78.97,
+                "F1": 88.98,
+                "avg_time_sec": 12.21
+            },
+            {
+                "N": 5,
+                "epsilon": "inf",
+                "EM": 78.94,
+                "F1": 88.93,
+                "avg_time_sec": 12.21
+            },
+            {
+                "N": 10,
+                "epsilon": 0.1,
+                "EM": 77.42,
+                "F1": 87.95,
+                "avg_time_sec": 20.61
+            },
+            {
+                "N": 10,
+                "epsilon": 0.5,
+                "EM": 78.66,
+                "F1": 88.79,
+                "avg_time_sec": 20.61
+            },
+            {
+                "N": 10,
+                "epsilon": 1.0,
+                "EM": 79.01,
+                "F1": 88.99,
+                "avg_time_sec": 20.61
+            },
+            {
+                "N": 10,
+                "epsilon": 3.0,
+                "EM": 79.09,
+                "F1": 88.97,
+                "avg_time_sec": 20.61
+            },
+            {
+                "N": 10,
+                "epsilon": 5.0,
+                "EM": 79.06,
+                "F1": 89.02,
+                "avg_time_sec": 20.61
+            },
+            {
+                "N": 10,
+                "epsilon": 10.0,
+                "EM": 79.15,
+                "F1": 89.04,
+                "avg_time_sec": 20.61
+            },
+            {
+                "N": 10,
+                "epsilon": "inf",
+                "EM": 79.12,
+                "F1": 88.98,
+                "avg_time_sec": 20.61
+            },
+            {
+                "N": 20,
+                "epsilon": 0.1,
+                "EM": 77.58,
+                "F1": 88.06,
+                "avg_time_sec": 39.17
+            },
+            {
+                "N": 20,
+                "epsilon": 0.5,
+                "EM": 79.18,
+                "F1": 89.09,
+                "avg_time_sec": 39.17
+            },
+            {
+                "N": 20,
+                "epsilon": 1.0,
+                "EM": 79.21,
+                "F1": 89.09,
+                "avg_time_sec": 39.17
+            },
+            {
+                "N": 20,
+                "epsilon": 3.0,
+                "EM": 79.24,
+                "F1": 89.11,
+                "avg_time_sec": 39.17
+            },
+            {
+                "N": 20,
+                "epsilon": 5.0,
+                "EM": 79.25,
+                "F1": 89.13,
+                "avg_time_sec": 39.17
+            },
+            {
+                "N": 20,
+                "epsilon": 10.0,
+                "EM": 79.27,
+                "F1": 89.14,
+                "avg_time_sec": 39.17
+            },
+            {
+                "N": 20,
+                "epsilon": "inf",
+                "EM": 79.22,
+                "F1": 89.09,
+                "avg_time_sec": 39.17
+            },
+            {
+                "N": 50,
+                "epsilon": 0.1,
+                "EM": 78.66,
+                "F1": 88.72,
+                "avg_time_sec": 95.12
+            },
+            {
+                "N": 50,
+                "epsilon": 0.5,
+                "EM": 79.24,
+                "F1": 89.15,
+                "avg_time_sec": 95.12
+            },
+            {
+                "N": 50,
+                "epsilon": 1.0,
+                "EM": 79.23,
+                "F1": 89.14,
+                "avg_time_sec": 95.12
+            },
+            {
+                "N": 50,
+                "epsilon": 3.0,
+                "EM": 79.22,
+                "F1": 89.12,
+                "avg_time_sec": 95.12
+            },
+            {
+                "N": 50,
+                "epsilon": 5.0,
+                "EM": 79.16,
+                "F1": 89.1,
+                "avg_time_sec": 95.12
+            },
+            {
+                "N": 50,
+                "epsilon": 10.0,
+                "EM": 79.2,
+                "F1": 89.12,
+                "avg_time_sec": 95.12
+            },
+            {
+                "N": 50,
+                "epsilon": "inf",
+                "EM": 79.17,
+                "F1": 89.12,
+                "avg_time_sec": 95.12
+            },
+            {
+                "N": 100,
+                "epsilon": 0.1,
+                "EM": 79.22,
+                "F1": 89.12,
+                "avg_time_sec": 185.76
+            },
+            {
+                "N": 100,
+                "epsilon": 0.5,
+                "EM": 79.16,
+                "F1": 89.19,
+                "avg_time_sec": 185.76
+            },
+            {
+                "N": 100,
+                "epsilon": 1.0,
+                "EM": 79.18,
+                "F1": 89.25,
+                "avg_time_sec": 185.76
+            },
+            {
+                "N": 100,
+                "epsilon": 3.0,
+                "EM": 79.2,
+                "F1": 89.3,
+                "avg_time_sec": 185.76
+            },
+            {
+                "N": 100,
+                "epsilon": 5.0,
+                "EM": 79.2,
+                "F1": 89.31,
+                "avg_time_sec": 185.76
+            },
+            {
+                "N": 100,
+                "epsilon": 10.0,
+                "EM": 79.2,
+                "F1": 89.31,
+                "avg_time_sec": 185.76
+            },
+            {
+                "N": 100,
+                "epsilon": "inf",
+                "EM": 79.2,
+                "F1": 89.31,
+                "avg_time_sec": 185.76
+            }
+        ]
+    },
+    {
+        "file_name": "sdp_qa_qwen_sanitized_n100_results.jsonl",
+        "total_questions_evaluated": 500,
+        "metrics": [
+            {
+                "N": 5,
+                "epsilon": 0.1,
+                "EM": 80.24,
+                "F1": 89.94,
+                "avg_time_sec": 11.13
+            },
+            {
+                "N": 5,
+                "epsilon": 0.5,
+                "EM": 80.61,
+                "F1": 90.15,
+                "avg_time_sec": 11.13
+            },
+            {
+                "N": 5,
+                "epsilon": 1.0,
+                "EM": 81.0,
+                "F1": 90.32,
+                "avg_time_sec": 11.13
+            },
+            {
+                "N": 5,
+                "epsilon": 3.0,
+                "EM": 81.27,
+                "F1": 90.47,
+                "avg_time_sec": 11.13
+            },
+            {
+                "N": 5,
+                "epsilon": 5.0,
+                "EM": 81.3,
+                "F1": 90.51,
+                "avg_time_sec": 11.13
+            },
+            {
+                "N": 5,
+                "epsilon": 10.0,
+                "EM": 81.37,
+                "F1": 90.47,
+                "avg_time_sec": 11.13
+            },
+            {
+                "N": 5,
+                "epsilon": "inf",
+                "EM": 81.25,
+                "F1": 90.46,
+                "avg_time_sec": 11.13
+            },
+            {
+                "N": 10,
+                "epsilon": 0.1,
+                "EM": 79.83,
+                "F1": 89.67,
+                "avg_time_sec": 19.09
+            },
+            {
+                "N": 10,
+                "epsilon": 0.5,
+                "EM": 81.04,
+                "F1": 90.33,
+                "avg_time_sec": 19.09
+            },
+            {
+                "N": 10,
+                "epsilon": 1.0,
+                "EM": 81.31,
+                "F1": 90.5,
+                "avg_time_sec": 19.09
+            },
+            {
+                "N": 10,
+                "epsilon": 3.0,
+                "EM": 81.43,
+                "F1": 90.5,
+                "avg_time_sec": 19.09
+            },
+            {
+                "N": 10,
+                "epsilon": 5.0,
+                "EM": 81.37,
+                "F1": 90.47,
+                "avg_time_sec": 19.09
+            },
+            {
+                "N": 10,
+                "epsilon": 10.0,
+                "EM": 81.39,
+                "F1": 90.48,
+                "avg_time_sec": 19.09
+            },
+            {
+                "N": 10,
+                "epsilon": "inf",
+                "EM": 81.39,
+                "F1": 90.52,
+                "avg_time_sec": 19.09
+            },
+            {
+                "N": 20,
+                "epsilon": 0.1,
+                "EM": 80.05,
+                "F1": 89.84,
+                "avg_time_sec": 36.31
+            },
+            {
+                "N": 20,
+                "epsilon": 0.5,
+                "EM": 81.37,
+                "F1": 90.48,
+                "avg_time_sec": 36.31
+            },
+            {
+                "N": 20,
+                "epsilon": 1.0,
+                "EM": 81.47,
+                "F1": 90.5,
+                "avg_time_sec": 36.31
+            },
+            {
+                "N": 20,
+                "epsilon": 3.0,
+                "EM": 81.47,
+                "F1": 90.49,
+                "avg_time_sec": 36.31
+            },
+            {
+                "N": 20,
+                "epsilon": 5.0,
+                "EM": 81.44,
+                "F1": 90.47,
+                "avg_time_sec": 36.31
+            },
+            {
+                "N": 20,
+                "epsilon": 10.0,
+                "EM": 81.41,
+                "F1": 90.47,
+                "avg_time_sec": 36.31
+            },
+            {
+                "N": 20,
+                "epsilon": "inf",
+                "EM": 81.45,
+                "F1": 90.46,
+                "avg_time_sec": 36.31
+            },
+            {
+                "N": 50,
+                "epsilon": 0.1,
+                "EM": 81.09,
+                "F1": 90.33,
+                "avg_time_sec": 88.41
+            },
+            {
+                "N": 50,
+                "epsilon": 0.5,
+                "EM": 81.45,
+                "F1": 90.46,
+                "avg_time_sec": 88.41
+            },
+            {
+                "N": 50,
+                "epsilon": 1.0,
+                "EM": 81.41,
+                "F1": 90.43,
+                "avg_time_sec": 88.41
+            },
+            {
+                "N": 50,
+                "epsilon": 3.0,
+                "EM": 81.46,
+                "F1": 90.45,
+                "avg_time_sec": 88.41
+            },
+            {
+                "N": 50,
+                "epsilon": 5.0,
+                "EM": 81.46,
+                "F1": 90.45,
+                "avg_time_sec": 88.41
+            },
+            {
+                "N": 50,
+                "epsilon": 10.0,
+                "EM": 81.46,
+                "F1": 90.46,
+                "avg_time_sec": 88.41
+            },
+            {
+                "N": 50,
+                "epsilon": "inf",
+                "EM": 81.42,
+                "F1": 90.43,
+                "avg_time_sec": 88.41
+            },
+            {
+                "N": 100,
+                "epsilon": 0.1,
+                "EM": 81.4,
+                "F1": 90.47,
+                "avg_time_sec": 172.52
+            },
+            {
+                "N": 100,
+                "epsilon": 0.5,
+                "EM": 81.49,
+                "F1": 90.45,
+                "avg_time_sec": 172.52
+            },
+            {
+                "N": 100,
+                "epsilon": 1.0,
+                "EM": 81.54,
+                "F1": 90.46,
+                "avg_time_sec": 172.52
+            },
+            {
+                "N": 100,
+                "epsilon": 3.0,
+                "EM": 81.58,
+                "F1": 90.47,
+                "avg_time_sec": 172.52
+            },
+            {
+                "N": 100,
+                "epsilon": 5.0,
+                "EM": 81.59,
+                "F1": 90.48,
+                "avg_time_sec": 172.52
+            },
+            {
+                "N": 100,
+                "epsilon": 10.0,
+                "EM": 81.6,
+                "F1": 90.48,
+                "avg_time_sec": 172.52
+            },
+            {
+                "N": 100,
+                "epsilon": "inf",
+                "EM": 81.6,
+                "F1": 90.48,
+                "avg_time_sec": 172.52
+            }
+        ]
+    },
+    {
+        "file_name": "sdp_qa_qwen_standard_n100_results.jsonl",
+        "total_questions_evaluated": 500,
+        "metrics": [
+            {
+                "N": 5,
+                "epsilon": 0.1,
+                "EM": 80.18,
+                "F1": 89.97,
+                "avg_time_sec": 11.79
+            },
+            {
+                "N": 5,
+                "epsilon": 0.5,
+                "EM": 80.71,
+                "F1": 90.24,
+                "avg_time_sec": 11.79
+            },
+            {
+                "N": 5,
+                "epsilon": 1.0,
+                "EM": 81.1,
+                "F1": 90.46,
+                "avg_time_sec": 11.79
+            },
+            {
+                "N": 5,
+                "epsilon": 3.0,
+                "EM": 81.33,
+                "F1": 90.58,
+                "avg_time_sec": 11.79
+            },
+            {
+                "N": 5,
+                "epsilon": 5.0,
+                "EM": 81.46,
+                "F1": 90.66,
+                "avg_time_sec": 11.79
+            },
+            {
+                "N": 5,
+                "epsilon": 10.0,
+                "EM": 81.37,
+                "F1": 90.57,
+                "avg_time_sec": 11.79
+            },
+            {
+                "N": 5,
+                "epsilon": "inf",
+                "EM": 81.37,
+                "F1": 90.58,
+                "avg_time_sec": 11.79
+            },
+            {
+                "N": 10,
+                "epsilon": 0.1,
+                "EM": 80.02,
+                "F1": 89.85,
+                "avg_time_sec": 19.87
+            },
+            {
+                "N": 10,
+                "epsilon": 0.5,
+                "EM": 81.24,
+                "F1": 90.5,
+                "avg_time_sec": 19.87
+            },
+            {
+                "N": 10,
+                "epsilon": 1.0,
+                "EM": 81.44,
+                "F1": 90.63,
+                "avg_time_sec": 19.87
+            },
+            {
+                "N": 10,
+                "epsilon": 3.0,
+                "EM": 81.53,
+                "F1": 90.66,
+                "avg_time_sec": 19.87
+            },
+            {
+                "N": 10,
+                "epsilon": 5.0,
+                "EM": 81.55,
+                "F1": 90.66,
+                "avg_time_sec": 19.87
+            },
+            {
+                "N": 10,
+                "epsilon": 10.0,
+                "EM": 81.51,
+                "F1": 90.64,
+                "avg_time_sec": 19.87
+            },
+            {
+                "N": 10,
+                "epsilon": "inf",
+                "EM": 81.49,
+                "F1": 90.64,
+                "avg_time_sec": 19.87
+            },
+            {
+                "N": 20,
+                "epsilon": 0.1,
+                "EM": 80.22,
+                "F1": 89.94,
+                "avg_time_sec": 37.59
+            },
+            {
+                "N": 20,
+                "epsilon": 0.5,
+                "EM": 81.47,
+                "F1": 90.62,
+                "avg_time_sec": 37.59
+            },
+            {
+                "N": 20,
+                "epsilon": 1.0,
+                "EM": 81.61,
+                "F1": 90.65,
+                "avg_time_sec": 37.59
+            },
+            {
+                "N": 20,
+                "epsilon": 3.0,
+                "EM": 81.61,
+                "F1": 90.64,
+                "avg_time_sec": 37.59
+            },
+            {
+                "N": 20,
+                "epsilon": 5.0,
+                "EM": 81.58,
+                "F1": 90.63,
+                "avg_time_sec": 37.59
+            },
+            {
+                "N": 20,
+                "epsilon": 10.0,
+                "EM": 81.59,
+                "F1": 90.64,
+                "avg_time_sec": 37.59
+            },
+            {
+                "N": 20,
+                "epsilon": "inf",
+                "EM": 81.59,
+                "F1": 90.64,
+                "avg_time_sec": 37.59
+            },
+            {
+                "N": 50,
+                "epsilon": 0.1,
+                "EM": 81.33,
+                "F1": 90.55,
+                "avg_time_sec": 91.24
+            },
+            {
+                "N": 50,
+                "epsilon": 0.5,
+                "EM": 81.66,
+                "F1": 90.68,
+                "avg_time_sec": 91.24
+            },
+            {
+                "N": 50,
+                "epsilon": 1.0,
+                "EM": 81.64,
+                "F1": 90.66,
+                "avg_time_sec": 91.24
+            },
+            {
+                "N": 50,
+                "epsilon": 3.0,
+                "EM": 81.59,
+                "F1": 90.63,
+                "avg_time_sec": 91.24
+            },
+            {
+                "N": 50,
+                "epsilon": 5.0,
+                "EM": 81.64,
+                "F1": 90.67,
+                "avg_time_sec": 91.24
+            },
+            {
+                "N": 50,
+                "epsilon": 10.0,
+                "EM": 81.64,
+                "F1": 90.66,
+                "avg_time_sec": 91.24
+            },
+            {
+                "N": 50,
+                "epsilon": "inf",
+                "EM": 81.63,
+                "F1": 90.66,
+                "avg_time_sec": 91.24
+            },
+            {
+                "N": 100,
+                "epsilon": 0.1,
+                "EM": 81.64,
+                "F1": 90.71,
+                "avg_time_sec": 178.16
+            },
+            {
+                "N": 100,
+                "epsilon": 0.5,
+                "EM": 81.55,
+                "F1": 90.62,
+                "avg_time_sec": 178.16
+            },
+            {
+                "N": 100,
+                "epsilon": 1.0,
+                "EM": 81.54,
+                "F1": 90.62,
+                "avg_time_sec": 178.16
+            },
+            {
+                "N": 100,
+                "epsilon": 3.0,
+                "EM": 81.51,
+                "F1": 90.6,
+                "avg_time_sec": 178.16
+            },
+            {
+                "N": 100,
+                "epsilon": 5.0,
+                "EM": 81.51,
+                "F1": 90.6,
+                "avg_time_sec": 178.16
+            },
+            {
+                "N": 100,
+                "epsilon": 10.0,
+                "EM": 81.49,
+                "F1": 90.59,
+                "avg_time_sec": 178.16
+            },
+            {
+                "N": 100,
+                "epsilon": "inf",
+                "EM": 81.51,
+                "F1": 90.6,
+                "avg_time_sec": 178.16
+            }
+        ]
+    }
+]

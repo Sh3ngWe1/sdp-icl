@@ -1,0 +1,297 @@
+{
+  "generated_at": "20260316_130922",
+  "config": {
+    "model_type": "qwen",
+    "n_test_questions": 5,
+    "k_shots": 3,
+    "n_dp_icl": 100,
+    "n_sdp_icl": 5,
+    "gaussian_sigma": 1.0,
+    "laplace_scale": 1.0,
+    "max_concurrent": 4
+  },
+  "results": [
+    {
+      "method": "method1_baseline_rag",
+      "ttft_seconds": 0.6136,
+      "retrieve_seconds": 0.1054,
+      "llm_total_seconds": 1.6588,
+      "total_seconds": 1.7641,
+      "answer": "The provided context does not contain information related to distributing wealth. Therefore, based on the given documents, I cannot provide an answer to the question \"What can work to even the distribution of wealth?\" The documents discuss Koch's postulates for proving infectious",
+      "question_id": "5727ef664b864d1900164062",
+      "question": "What can work to even the distribution of wealth?",
+      "ground_truth": [
+        "social spending",
+        "social spending",
+        "steeper tax progressivity applied to social spending"
+      ]
+    },
+    {
+      "method": "method1_baseline_rag",
+      "ttft_seconds": 0.7683,
+      "retrieve_seconds": 0.1122,
+      "llm_total_seconds": 1.8411,
+      "total_seconds": 1.9534,
+      "answer": "The retrieved context does not contain any information about who included 1 as the first prime number in the mid-18th century. The provided documents are about Yuri Gagarin's spaceflight, Jovanka Broz and her relationship with",
+      "question_id": "57297547af94a219006aa45c",
+      "question": "Who included 1 as the first prime number in the mid 18th century?",
+      "ground_truth": [
+        "Christian Goldbach",
+        "Christian Goldbach",
+        "Christian Goldbach",
+        "mathematicians",
+        "mathematicians"
+      ]
+    },
+    {
+      "method": "method1_baseline_rag",
+      "ttft_seconds": 0.604,
+      "retrieve_seconds": 0.108,
+      "llm_total_seconds": 1.2034,
+      "total_seconds": 1.3115,
+      "answer": "The retrieved context does not provide information about the punishment for civil disobedients. Therefore, I cannot answer the question based on the given context.",
+      "question_id": "5728eef92ca10214002daab0",
+      "question": "What type of punishment is sometimes offered to civil disobedients?",
+      "ground_truth": [
+        "plea bargain",
+        "plead guilty to one misdemeanor count and receive no jail time",
+        "plea bargain",
+        "plea bargain",
+        "plea bargain"
+      ]
+    },
+    {
+      "method": "method1_baseline_rag",
+      "ttft_seconds": 0.8987,
+      "retrieve_seconds": 0.1328,
+      "llm_total_seconds": 1.8186,
+      "total_seconds": 1.9515,
+      "answer": "The question does not match any information provided in the retrieved context. There is no mention of a \"desert city\" in any of the documents. Could you please provide more context or clarify your question?",
+      "question_id": "5705eccb52bb8914006896b8",
+      "question": "What is the name of the desert city?",
+      "ground_truth": [
+        "Palm Springs",
+        "Palm Springs",
+        "Palm Springs"
+      ]
+    },
+    {
+      "method": "method1_baseline_rag",
+      "ttft_seconds": 0.5872,
+      "retrieve_seconds": 0.1418,
+      "llm_total_seconds": 1.7137,
+      "total_seconds": 1.8555,
+      "answer": "The provided context does not contain any information about Victoria's highest monthly temperature. The context discusses Victoria's writing habits, journals, and correspondence but does not mention any temperatures or weather conditions. Therefore, I cannot provide an answer to the question based on",
+      "question_id": "570d30fdfed7b91900d45ce6",
+      "question": "What is Victoria's highest monthly temperature?",
+      "ground_truth": [
+        "48.8 °C",
+        "48.8 °C",
+        "48.8 °C (119.8 °F)"
+      ]
+    },
+    {
+      "method": "method2_dp_icl",
+      "n_inferences": 100,
+      "success_count": 100,
+      "inference_seconds": 40.5631,
+      "vote_seconds": 0.000105,
+      "total_seconds": 40.5645,
+      "final_answer": "steeper tax progressivity",
+      "gaussian_sigma": 1.0,
+      "question_id": "5727ef664b864d1900164062",
+      "question": "What can work to even the distribution of wealth?",
+      "ground_truth": [
+        "social spending",
+        "social spending",
+        "steeper tax progressivity applied to social spending"
+      ]
+    },
+    {
+      "method": "method2_dp_icl",
+      "n_inferences": 100,
+      "success_count": 100,
+      "inference_seconds": 41.8382,
+      "vote_seconds": 3.8e-05,
+      "total_seconds": 41.8389,
+      "final_answer": "christian goldbach",
+      "gaussian_sigma": 1.0,
+      "question_id": "57297547af94a219006aa45c",
+      "question": "Who included 1 as the first prime number in the mid 18th century?",
+      "ground_truth": [
+        "Christian Goldbach",
+        "Christian Goldbach",
+        "Christian Goldbach",
+        "mathematicians",
+        "mathematicians"
+      ]
+    },
+    {
+      "method": "method2_dp_icl",
+      "n_inferences": 100,
+      "success_count": 100,
+      "inference_seconds": 38.7351,
+      "vote_seconds": 3.7e-05,
+      "total_seconds": 38.7358,
+      "final_answer": "no jail time",
+      "gaussian_sigma": 1.0,
+      "question_id": "5728eef92ca10214002daab0",
+      "question": "What type of punishment is sometimes offered to civil disobedients?",
+      "ground_truth": [
+        "plea bargain",
+        "plead guilty to one misdemeanor count and receive no jail time",
+        "plea bargain",
+        "plea bargain",
+        "plea bargain"
+      ]
+    },
+    {
+      "method": "method2_dp_icl",
+      "n_inferences": 100,
+      "success_count": 100,
+      "inference_seconds": 35.6108,
+      "vote_seconds": 3.8e-05,
+      "total_seconds": 35.6115,
+      "final_answer": "palm springs",
+      "gaussian_sigma": 1.0,
+      "question_id": "5705eccb52bb8914006896b8",
+      "question": "What is the name of the desert city?",
+      "ground_truth": [
+        "Palm Springs",
+        "Palm Springs",
+        "Palm Springs"
+      ]
+    },
+    {
+      "method": "method2_dp_icl",
+      "n_inferences": 100,
+      "success_count": 100,
+      "inference_seconds": 42.894,
+      "vote_seconds": 7.2e-05,
+      "total_seconds": 42.8948,
+      "final_answer": "48.8 °c",
+      "gaussian_sigma": 1.0,
+      "question_id": "570d30fdfed7b91900d45ce6",
+      "question": "What is Victoria's highest monthly temperature?",
+      "ground_truth": [
+        "48.8 °C",
+        "48.8 °C",
+        "48.8 °C (119.8 °F)"
+      ]
+    },
+    {
+      "method": "method3_sdp_icl",
+      "n_inferences": 5,
+      "success_count": 5,
+      "retrieve_seconds": 0.1318,
+      "inference_seconds": 1.924,
+      "vote_seconds": 2.6e-05,
+      "deanon_seconds": 1e-06,
+      "recompose_seconds": 0.5663,
+      "total_seconds": 2.6221,
+      "voted_answer": "steeper tax progressivity applied to social spending",
+      "deanon_answer": "steeper tax progressivity applied to social spending",
+      "final_answer": "Steeper tax progressivity combined with targeted social spending can work to even out the distribution of wealth.",
+      "laplace_scale": 1.0,
+      "question_id": "5727ef664b864d1900164062",
+      "question": "What can work to even the distribution of wealth?",
+      "ground_truth": [
+        "social spending",
+        "social spending",
+        "steeper tax progressivity applied to social spending"
+      ]
+    },
+    {
+      "method": "method3_sdp_icl",
+      "n_inferences": 5,
+      "success_count": 5,
+      "retrieve_seconds": 0.1313,
+      "inference_seconds": 2.1839,
+      "vote_seconds": 2.5e-05,
+      "deanon_seconds": 1e-06,
+      "recompose_seconds": 0.5991,
+      "total_seconds": 2.9145,
+      "voted_answer": "christian goldbach",
+      "deanon_answer": "christian goldbach",
+      "final_answer": "Christian Goldbach included 1 as the first prime number in the mid 18th century.",
+      "laplace_scale": 1.0,
+      "question_id": "57297547af94a219006aa45c",
+      "question": "Who included 1 as the first prime number in the mid 18th century?",
+      "ground_truth": [
+        "Christian Goldbach",
+        "Christian Goldbach",
+        "Christian Goldbach",
+        "mathematicians",
+        "mathematicians"
+      ]
+    },
+    {
+      "method": "method3_sdp_icl",
+      "n_inferences": 5,
+      "success_count": 5,
+      "retrieve_seconds": 0.0984,
+      "inference_seconds": 2.0009,
+      "vote_seconds": 3.4e-05,
+      "deanon_seconds": 2e-06,
+      "recompose_seconds": 0.5635,
+      "total_seconds": 2.6629,
+      "voted_answer": "no jail time",
+      "deanon_answer": "no jail time",
+      "final_answer": "Civil disobedients are sometimes offered alternative punishments such as community service or fines instead of jail time.",
+      "laplace_scale": 1.0,
+      "question_id": "5728eef92ca10214002daab0",
+      "question": "What type of punishment is sometimes offered to civil disobedients?",
+      "ground_truth": [
+        "plea bargain",
+        "plead guilty to one misdemeanor count and receive no jail time",
+        "plea bargain",
+        "plea bargain",
+        "plea bargain"
+      ]
+    },
+    {
+      "method": "method3_sdp_icl",
+      "n_inferences": 5,
+      "success_count": 5,
+      "retrieve_seconds": 0.1237,
+      "inference_seconds": 1.7622,
+      "vote_seconds": 2.5e-05,
+      "deanon_seconds": 1e-06,
+      "recompose_seconds": 0.3485,
+      "total_seconds": 2.2345,
+      "voted_answer": "palm springs",
+      "deanon_answer": "palm springs",
+      "final_answer": "The name of the desert city is Palm Springs.",
+      "laplace_scale": 1.0,
+      "question_id": "5705eccb52bb8914006896b8",
+      "question": "What is the name of the desert city?",
+      "ground_truth": [
+        "Palm Springs",
+        "Palm Springs",
+        "Palm Springs"
+      ]
+    },
+    {
+      "method": "method3_sdp_icl",
+      "n_inferences": 5,
+      "success_count": 5,
+      "retrieve_seconds": 0.1016,
+      "inference_seconds": 2.1598,
+      "vote_seconds": 2.8e-05,
+      "deanon_seconds": 1e-06,
+      "recompose_seconds": 0.5905,
+      "total_seconds": 2.852,
+      "voted_answer": "48.8 °c (119.8 °f)",
+      "deanon_answer": "48.8 °c (119.8 °f)",
+      "final_answer": "Victoria's highest recorded monthly temperature is 48.8°C (119.8°F).",
+      "laplace_scale": 1.0,
+      "question_id": "570d30fdfed7b91900d45ce6",
+      "question": "What is Victoria's highest monthly temperature?",
+      "ground_truth": [
+        "48.8 °C",
+        "48.8 °C",
+        "48.8 °C (119.8 °F)"
+      ]
+    }
+  ]
+}

@@ -3,8 +3,10 @@ import random
 import os
 from datasets import load_dataset
 
-OUTPUT_PATH = "data/qa_validation_set.json"
-NUM_QA_SAMPLES = 500
+OUTPUT_PATH = "data/qa_validation_set_5000.json"
+# NUM_QA_SAMPLES = 500
+NUM_QA_SAMPLES = 5000
+
 random.seed(42)
 
 print("正在下載/載入 SQuAD 2.0 Validation Set...")
