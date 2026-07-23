@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 # INPUT_REPORT = "results/dp_analysis_report_5000.json"
 # OUTPUT_DIR = "results/charts_5000"
 INPUT_REPORT = "results/dp_analysis_report.json"
-OUTPUT_DIR = "results/charts"
+OUTPUT_DIR = "results/charts/no_sweetspot"
 
 # 圖表樣式設定 (學術風格)
 plt.style.use('seaborn-v0_8-whitegrid')
@@ -173,22 +173,38 @@ def plot_time_vs_utility(data, fixed_eps=3.0):
 # ================= 3. 論文專用圖表 (main2) =================
 
 INPUT_REPORT_5000 = "results/dp_analysis_report_5000.json"
-OUTPUT_DIR_5000 = "results/charts_5000_paper"
+OUTPUT_DIR_5000 = "results/charts_5000_paper/llama"
 
-def _get_qwen_sanitized(data_5000):
-    """從 5000 筆報告中取出 Qwen Sanitized 的 metrics"""
+def _paper_output_dir(model):
+    """Qwen 圖表存根目錄，其他模型存於子資料夾"""
+    if model == "qwen":
+        return OUTPUT_DIR_5000
+    path = os.path.join(OUTPUT_DIR_5000, model)
+    os.makedirs(path, exist_ok=True)
+    return path
+
+def _get_report_metrics(data_5000, model, data_type):
+    """從 5000 筆報告中取出指定 model + data_type 的 metrics"""
+    tag = f"{model}_{data_type}"
     for report in data_5000:
-        if "qwen_sanitized" in report['file_name']:
+        if tag in report['file_name']:
             return report['metrics']
     return []
 
-def plot_f1_vs_epsilon(data_5000):
+def _get_qwen_sanitized(data_5000):
+    return _get_report_metrics(data_5000, "qwen", "sanitized")
+
+def plot_f1_vs_epsilon(data_5000, model="qwen", data_type="sanitized", ylim=None):
     """
-    f1_vs_epsilon.png
+    f1_vs_epsilon_{model}_{data_type}.png
     X 軸: epsilon (0.1, 0.5, 1.0, 3.0, 5.0, 10.0)
-    Y 軸: F1 (Qwen Sanitized, N=5 / N=20 / N=100)
+    Y 軸: F1 (N=5 / N=20 / N=100)
     """
-    metrics = _get_qwen_sanitized(data_5000)
+    metrics = _get_report_metrics(data_5000, model, data_type)
+    if not metrics:
+        print(f"⚠️ 找不到 {model}_{data_type} 的資料，略過繪圖。")
+        return
+
     eps_labels = [0.1, 0.5, 1.0, 3.0, 5.0, 10.0]
     target_ns = [5, 20, 100]
     colors = ['#1f77b4', '#ff7f0e', '#2ca02c']
@@ -196,6 +212,7 @@ def plot_f1_vs_epsilon(data_5000):
     linestyles = ['-', '--', ':']
 
     fig, ax = plt.subplots(figsize=(9, 5.5))
+    all_f1 = []
 
     for idx, n in enumerate(target_ns):
         f1_vals = []
@@ -205,6 +222,7 @@ def plot_f1_vs_epsilon(data_5000):
                 None
             )
             f1_vals.append(entry['F1'] if entry else None)
+        all_f1.extend(v for v in f1_vals if v is not None)
 
         x_pos = list(range(len(eps_labels)))
         ax.plot(x_pos, f1_vals,
@@ -215,31 +233,42 @@ def plot_f1_vs_epsilon(data_5000):
 
     ax.set_xticks(range(len(eps_labels)))
     ax.set_xticklabels([str(e) for e in eps_labels], fontsize=12)
-    ax.set_ylim(85, 91)
+    if ylim is not None:
+        ax.set_ylim(*ylim)
+    elif all_f1:
+        f1_min, f1_max = min(all_f1), max(all_f1)
+        pad = max(0.4, (f1_max - f1_min) * 0.15)
+        ax.set_ylim(f1_min - pad, f1_max + pad)
     ax.set_xlabel(r'Privacy Budget ($\epsilon$)', fontsize=14)
     ax.set_ylabel('F1 Score (%)', fontsize=14)
-    ax.set_title('F1 Score vs. Privacy Budget $\\epsilon$ (Qwen, Sanitized)', fontsize=15, fontweight='bold')
+    ax.set_title(
+        f'F1 Score vs. Privacy Budget $\\epsilon$ ({model.capitalize()}, {data_type.capitalize()})',
+        fontsize=15, fontweight='bold'
+    )
     ax.legend(fontsize=12, loc='lower right')
     ax.grid(True, linestyle='--', alpha=0.6)
     fig.tight_layout()
 
-    out = os.path.join(OUTPUT_DIR_5000, "f1_vs_epsilon.png")
+    out_name = "f1_vs_epsilon.png" if model == "qwen" and data_type == "sanitized" else f"f1_vs_epsilon_{model}_{data_type}.png"
+    out = os.path.join(_paper_output_dir(model), out_name)
     fig.savefig(out, dpi=300)
     print(f"✅ 已儲存: {out}")
     plt.close(fig)
 
 
-def plot_latency_f1_vs_n(data_5000):
+def plot_latency_f1_vs_n(data_5000, model="qwen", data_type="sanitized", target_eps=0.1):
     """
     latency_f1_vs_n.png
     X 軸: N (5, 10, 20, 50, 100)
-    左 Y 軸 (藍): F1 (Qwen Sanitized, eps=0.1)
-    右 Y 軸 (紅): avg_time_sec (Qwen Sanitized, eps=0.1)
-    並在 N=20 加上 "Sweet Spot" 標註
+    左 Y 軸 (藍): F1
+    右 Y 軸 (紅): avg_time_sec
     """
-    metrics = _get_qwen_sanitized(data_5000)
+    metrics = _get_report_metrics(data_5000, model, data_type)
+    if not metrics:
+        print(f"⚠️ 找不到 {model}_{data_type} 的資料，略過繪圖。")
+        return
+
     target_ns = [5, 10, 20, 50, 100]
-    target_eps = 0.1
 
     f1_vals, time_vals = [], []
     for n in target_ns:
@@ -261,23 +290,10 @@ def plot_latency_f1_vs_n(data_5000):
 
     color_f1   = '#2563EB'
     color_time = '#DC2626'
-    color_star = '#15803d'
 
-    sweet_idx = target_ns.index(20)
-
-    # ── F1 折線（左軸）───────────────────────────
-    # 先畫普通圓點（排除 N=20）
-    x_other = [xi for xi in x if xi != sweet_idx]
-    f1_other = [f1_vals[xi] for xi in x_other]
     line1, = ax1.plot(x, f1_vals,
                       color=color_f1, linewidth=2.5, zorder=3,
-                      marker='o', markersize=0, label='F1 Score (left)')
-    ax1.plot(x_other, f1_other,
-             'o', color=color_f1, markersize=9, zorder=4)
-    # N=20 換成星號
-    star_handle, = ax1.plot(sweet_idx, f1_vals[sweet_idx],
-                            '*', color=color_star, markersize=18,
-                            zorder=5, label='Sweet Spot ($N$=20)')
+                      marker='o', markersize=9, label='F1 Score (left)')
 
     ax1.set_xlabel('Number of Ensembles ($N$)', fontsize=13, labelpad=8)
     ax1.set_ylabel('F1 Score (%)', color=color_f1, fontsize=13, labelpad=8)
@@ -294,7 +310,6 @@ def plot_latency_f1_vs_n(data_5000):
     ax1.spines['bottom'].set_color('#94a3b8')
     ax1.spines['right'].set_visible(False)
 
-    # ── 延遲折線（右軸）─────────────────────────
     ax2 = ax1.twinx()
     ax2.spines['top'].set_visible(False)
     ax2.spines['left'].set_visible(False)
@@ -308,7 +323,6 @@ def plot_latency_f1_vs_n(data_5000):
     ax2.spines['right'].set_color(color_time)
     ax2.spines['right'].set_linewidth(1.6)
 
-    # ── 在每個點旁標數值（字小一點）───────────────
     for i, (f1, t) in enumerate(zip(f1_vals, time_vals)):
         ax1.annotate(f'{f1:.2f}', xy=(i, f1),
                      xytext=(0, 9), textcoords='offset points',
@@ -319,21 +333,26 @@ def plot_latency_f1_vs_n(data_5000):
                      ha='center', va='top', fontsize=8,
                      color=color_time)
 
-    # ── 圖例（三條一起放左上）───────────────────
-    handles = [line1, line2, star_handle]
+    handles = [line1, line2]
     ax1.legend(handles, [h.get_label() for h in handles],
                fontsize=11, loc='upper left',
                framealpha=0.9, edgecolor='#cbd5e1', frameon=True)
 
+    model_label = f"{model.capitalize()}-{data_type.capitalize()}"
     ax1.set_title(
-        r'F1 Score & Latency vs. $N$  (Qwen-Sanitized, $\epsilon=0.1$)',
+        rf'F1 Score & Latency vs. $N$  ({model_label}, $\epsilon={target_eps}$)',
         fontsize=14, fontweight='bold', pad=12
     )
     ax1.grid(axis='y', linestyle='--', alpha=0.45, zorder=1)
     ax1.grid(axis='x', linestyle=':', alpha=0.3, zorder=1)
     fig.tight_layout()
 
-    out = os.path.join(OUTPUT_DIR_5000, "latency_f1_vs_n.png")
+    out_name = (
+        "latency_f1_vs_n.png"
+        if model == "qwen" and data_type == "sanitized"
+        else f"latency_f1_vs_n_{model}_{data_type}.png"
+    )
+    out = os.path.join(_paper_output_dir(model), out_name)
     fig.savefig(out, dpi=300, bbox_inches='tight', facecolor='white')
     print(f"✅ 已儲存: {out}")
     plt.close(fig)
@@ -353,7 +372,9 @@ def main2():
 
     print("📊 開始繪製論文用圖表 (main2)...")
     plot_f1_vs_epsilon(data_5000)
+    plot_f1_vs_epsilon(data_5000, model="llama", data_type="sanitized")
     plot_latency_f1_vs_n(data_5000)
+    plot_latency_f1_vs_n(data_5000, model="llama", data_type="sanitized")
     print(f"\n🎉 完成！請前往 {OUTPUT_DIR_5000}/ 查看圖表。")
 
 

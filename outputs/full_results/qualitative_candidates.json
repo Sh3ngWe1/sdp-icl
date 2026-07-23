@@ -1,0 +1,974 @@
+{
+  "meta": {
+    "sdp_files": [
+      "C:\\Users\\IDLAB\\Desktop\\sdp_icl\\results\\sdp\\val_5000\\sdp_qa_llama_sanitized_n100_5000_results.jsonl",
+      "C:\\Users\\IDLAB\\Desktop\\sdp_icl\\results\\sdp\\val_5000\\sdp_qa_llama_standard_n100_5000_results.jsonl",
+      "C:\\Users\\IDLAB\\Desktop\\sdp_icl\\results\\sdp\\val_5000\\sdp_qa_qwen_sanitized_n100_5000_results.jsonl",
+      "C:\\Users\\IDLAB\\Desktop\\sdp_icl\\results\\sdp\\val_5000\\sdp_qa_qwen_standard_n100_5000_results.jsonl"
+    ],
+    "baseline_files": [
+      "C:\\Users\\IDLAB\\Desktop\\sdp_icl\\results\\baselines\\multiseed\\baseline_sanitized_qa_llama_seed_42_results.jsonl",
+      "C:\\Users\\IDLAB\\Desktop\\sdp_icl\\results\\baselines\\multiseed\\baseline_sanitized_qa_qwen_seed_42_results.jsonl",
+      "C:\\Users\\IDLAB\\Desktop\\sdp_icl\\results\\baselines\\multiseed\\baseline_standard_qa_llama_seed_42_results.jsonl",
+      "C:\\Users\\IDLAB\\Desktop\\sdp_icl\\results\\baselines\\multiseed\\baseline_standard_qa_qwen_seed_42_results.jsonl"
+    ],
+    "model_filter": null,
+    "top_k": 5
+  },
+  "cases": {
+    "success": [
+      {
+        "case_type": "success",
+        "selection_reason": "SDP-ICL F1=1.000 (EM=1); 優於或持平 Baseline-Standard (F1=0.706); 優於 Baseline-Sanitized (F1=0.706)",
+        "sdp_record": {
+          "id": "5730a4d02461fd1900a9cf2b",
+          "question": "Where did France focus its efforts to rebuild its empire?",
+          "context": "France took control of Algeria in 1830 but began in earnest to rebuild its worldwide empire after 1850, concentrating chiefly in North and West Africa, as well as South-East Asia, with other conquests in Central and East Africa, as well as the South Pacific. Republicans, at first hostile to empire, only became supportive when Germany started to build her own colonial empire. As it developed, the new empire took on roles of trade with France, supplying raw materials and purchasing manufactured items, as well as lending prestige to the motherland and spreading French civilization and language as well as Catholicism. It also provided crucial manpower in both World Wars.",
+          "ground_truth_answers": [
+            "Africa",
+            "North and West Africa",
+            "North and West Africa",
+            "North and West Africa, as well as South-East Asia, with other conquests in Central and East Africa, as well as the South Pacific",
+            "North and West Africa, as well as South-East Asia,"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "north and west africa as well as southeast asia",
+          "avg_latency_sec": 1.9426,
+          "total_latency_sec": 194.26,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.03,
+          "f1": 1.0,
+          "em": 1
+        },
+        "sdp_top_ensemble_answers": "\"north and west africa as well as southeast asia\" × 96 | \"north and west africa southeast asia\" × 3 | \"north africa southeast asia central africa east africa south pacific north and west africa\" × 1",
+        "baseline_standard": {
+          "id": "5730a4d02461fd1900a9cf2b",
+          "question": "Where did France focus its efforts to rebuild its empire?",
+          "context": "France took control of Algeria in 1830 but began in earnest to rebuild its worldwide empire after 1850, concentrating chiefly in North and West Africa, as well as South-East Asia, with other conquests in Central and East Africa, as well as the South Pacific. Republicans, at first hostile to empire, only became supportive when Germany started to build her own colonial empire. As it developed, the new empire took on roles of trade with France, supplying raw materials and purchasing manufactured items, as well as lending prestige to the motherland and spreading French civilization and language as well as Catholicism. It also provided crucial manpower in both World Wars.",
+          "ground_truth_answers": [
+            "Africa",
+            "North and West Africa",
+            "North and West Africa",
+            "North and West Africa, as well as South-East Asia, with other conquests in Central and East Africa, as well as the South Pacific",
+            "North and West Africa, as well as South-East Asia,"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "North and West Africa, \nSouth-East Asia, \nCentral and East Africa, \nthe South Pacific",
+          "avg_latency_sec": 4.2015,
+          "total_latency_sec": 4.2015,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 0.7059,
+          "em": 0
+        },
+        "baseline_sanitized": {
+          "id": "5730a4d02461fd1900a9cf2b",
+          "question": "Where did France focus its efforts to rebuild its empire?",
+          "context": "France took control of Algeria in 1830 but began in earnest to rebuild its worldwide empire after 1850, concentrating chiefly in North and West Africa, as well as South-East Asia, with other conquests in Central and East Africa, as well as the South Pacific. Republicans, at first hostile to empire, only became supportive when Germany started to build her own colonial empire. As it developed, the new empire took on roles of trade with France, supplying raw materials and purchasing manufactured items, as well as lending prestige to the motherland and spreading French civilization and language as well as Catholicism. It also provided crucial manpower in both World Wars.",
+          "ground_truth_answers": [
+            "Africa",
+            "North and West Africa",
+            "North and West Africa",
+            "North and West Africa, as well as South-East Asia, with other conquests in Central and East Africa, as well as the South Pacific",
+            "North and West Africa, as well as South-East Asia,"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "North and West Africa, \nSouth-East Asia, \nCentral and East Africa, \nthe South Pacific",
+          "avg_latency_sec": 4.8887,
+          "total_latency_sec": 4.8887,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 0.7059,
+          "em": 0
+        }
+      },
+      {
+        "case_type": "success",
+        "selection_reason": "SDP-ICL F1=1.000 (EM=1); 優於或持平 Baseline-Standard (F1=1.000); 優於 Baseline-Sanitized (F1=0.800)",
+        "sdp_record": {
+          "id": "57111ab8a58dae1900cd6c3c",
+          "question": "What protestant religions made Northern European counties safe for Huguenot immigration?",
+          "context": "Around 1685, Huguenot refugees found a safe haven in the Lutheran and Reformed states in Germany and Scandinavia. Nearly 50,000 Huguenots established themselves in Germany, 20,000 of whom were welcomed in Brandenburg-Prussia, where they were granted special privileges (Edict of Potsdam) and churches in which to worship (such as the Church of St. Peter and St. Paul, Angermünde) by Frederick William, Elector of Brandenburg and Duke of Prussia. The Huguenots furnished two new regiments of his army: the Altpreußische Infantry Regiments No. 13 (Regiment on foot Varenne) and 15 (Regiment on foot Wylich). Another 4,000 Huguenots settled in the German territories of Baden, Franconia (Principality of Bayreuth, Principality of Ansbach), Landgraviate of Hesse-Kassel, Duchy of Württemberg, in the Wetterau Association of Imperial Counts, in the Palatinate and Palatinate-Zweibrücken, in the Rhine-Main-Area (Frankfurt), in modern-day Saarland; and 1,500 found refuge in Hamburg, Bremen and Lower Saxony. Three hundred refugees were granted asylum at the court of George William, Duke of Brunswick-Lüneburg in Celle.",
+          "ground_truth_answers": [
+            "Lutheran and Reformed",
+            "Lutheran and Reformed",
+            "Lutheran and Reformed"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "lutheran and reformed",
+          "avg_latency_sec": 2.0669,
+          "total_latency_sec": 206.69,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.01,
+          "f1": 1.0,
+          "em": 1
+        },
+        "sdp_top_ensemble_answers": "\"lutheran and reformed\" × 100",
+        "baseline_standard": {
+          "id": "57111ab8a58dae1900cd6c3c",
+          "question": "What protestant religions made Northern European counties safe for Huguenot immigration?",
+          "context": "Around 1685, Huguenot refugees found a safe haven in the Lutheran and Reformed states in Germany and Scandinavia. Nearly 50,000 Huguenots established themselves in Germany, 20,000 of whom were welcomed in Brandenburg-Prussia, where they were granted special privileges (Edict of Potsdam) and churches in which to worship (such as the Church of St. Peter and St. Paul, Angermünde) by Frederick William, Elector of Brandenburg and Duke of Prussia. The Huguenots furnished two new regiments of his army: the Altpreußische Infantry Regiments No. 13 (Regiment on foot Varenne) and 15 (Regiment on foot Wylich). Another 4,000 Huguenots settled in the German territories of Baden, Franconia (Principality of Bayreuth, Principality of Ansbach), Landgraviate of Hesse-Kassel, Duchy of Württemberg, in the Wetterau Association of Imperial Counts, in the Palatinate and Palatinate-Zweibrücken, in the Rhine-Main-Area (Frankfurt), in modern-day Saarland; and 1,500 found refuge in Hamburg, Bremen and Lower Saxony. Three hundred refugees were granted asylum at the court of George William, Duke of Brunswick-Lüneburg in Celle.",
+          "ground_truth_answers": [
+            "Lutheran and Reformed",
+            "Lutheran and Reformed",
+            "Lutheran and Reformed"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "Lutheran and Reformed",
+          "avg_latency_sec": 2.9845,
+          "total_latency_sec": 2.9845,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "57111ab8a58dae1900cd6c3c",
+          "question": "What protestant religions made Northern European counties safe for Huguenot immigration?",
+          "context": "Around 1685, Huguenot refugees found a safe haven in the Lutheran and Reformed states in Germany and Scandinavia. Nearly 50,000 Huguenots established themselves in Germany, 20,000 of whom were welcomed in Brandenburg-Prussia, where they were granted special privileges (Edict of Potsdam) and churches in which to worship (such as the Church of St. Peter and St. Paul, Angermünde) by Frederick William, Elector of Brandenburg and Duke of Prussia. The Huguenots furnished two new regiments of his army: the Altpreußische Infantry Regiments No. 13 (Regiment on foot Varenne) and 15 (Regiment on foot Wylich). Another 4,000 Huguenots settled in the German territories of Baden, Franconia (Principality of Bayreuth, Principality of Ansbach), Landgraviate of Hesse-Kassel, Duchy of Württemberg, in the Wetterau Association of Imperial Counts, in the Palatinate and Palatinate-Zweibrücken, in the Rhine-Main-Area (Frankfurt), in modern-day Saarland; and 1,500 found refuge in Hamburg, Bremen and Lower Saxony. Three hundred refugees were granted asylum at the court of George William, Duke of Brunswick-Lüneburg in Celle.",
+          "ground_truth_answers": [
+            "Lutheran and Reformed",
+            "Lutheran and Reformed",
+            "Lutheran and Reformed"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "Lutheran \nReformed",
+          "avg_latency_sec": 2.2952,
+          "total_latency_sec": 2.2952,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 0.8,
+          "em": 0
+        }
+      },
+      {
+        "case_type": "success",
+        "selection_reason": "SDP-ICL F1=1.000 (EM=1); 優於或持平 Baseline-Standard (F1=1.000); 優於 Baseline-Sanitized (F1=1.000)",
+        "sdp_record": {
+          "id": "57263cfcec44d21400f3dc8d",
+          "question": "What was Apple Talk ",
+          "context": "AppleTalk was a proprietary suite of networking protocols developed by Apple Inc. in 1985 for Apple Macintosh computers. It was the primary protocol used by Apple devices through the 1980s and 90s. AppleTalk included features that allowed local area networks to be established ad hoc without the requirement for a centralized router or server. The AppleTalk system automatically assigned addresses, updated the distributed namespace, and configured any required inter-network routing. It was a plug-n-play system.",
+          "ground_truth_answers": [
+            "a proprietary suite of networking protocols developed by Apple Inc. in 1985",
+            "a proprietary suite of networking protocols developed by Apple Inc",
+            "proprietary suite of networking protocols"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "proprietary suite of networking protocols",
+          "avg_latency_sec": 1.7041,
+          "total_latency_sec": 170.41,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.04,
+          "f1": 1.0,
+          "em": 1
+        },
+        "sdp_top_ensemble_answers": "\"proprietary suite of networking protocols\" × 70 | \"networking protocols\" × 15 | \"appletalk\" × 9 | \"suite of networking protocols\" × 6",
+        "baseline_standard": {
+          "id": "57263cfcec44d21400f3dc8d",
+          "question": "What was Apple Talk ",
+          "context": "AppleTalk was a proprietary suite of networking protocols developed by Apple Inc. in 1985 for Apple Macintosh computers. It was the primary protocol used by Apple devices through the 1980s and 90s. AppleTalk included features that allowed local area networks to be established ad hoc without the requirement for a centralized router or server. The AppleTalk system automatically assigned addresses, updated the distributed namespace, and configured any required inter-network routing. It was a plug-n-play system.",
+          "ground_truth_answers": [
+            "a proprietary suite of networking protocols developed by Apple Inc. in 1985",
+            "a proprietary suite of networking protocols developed by Apple Inc",
+            "proprietary suite of networking protocols"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "a proprietary suite of networking protocols",
+          "avg_latency_sec": 2.4931,
+          "total_latency_sec": 2.4931,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "57263cfcec44d21400f3dc8d",
+          "question": "What was Apple Talk ",
+          "context": "AppleTalk was a proprietary suite of networking protocols developed by Apple Inc. in 1985 for Apple Macintosh computers. It was the primary protocol used by Apple devices through the 1980s and 90s. AppleTalk included features that allowed local area networks to be established ad hoc without the requirement for a centralized router or server. The AppleTalk system automatically assigned addresses, updated the distributed namespace, and configured any required inter-network routing. It was a plug-n-play system.",
+          "ground_truth_answers": [
+            "a proprietary suite of networking protocols developed by Apple Inc. in 1985",
+            "a proprietary suite of networking protocols developed by Apple Inc",
+            "proprietary suite of networking protocols"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "a proprietary suite of networking protocols",
+          "avg_latency_sec": 2.2378,
+          "total_latency_sec": 2.2378,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        }
+      },
+      {
+        "case_type": "success",
+        "selection_reason": "SDP-ICL F1=1.000 (EM=1); 優於或持平 Baseline-Standard (F1=1.000); 優於 Baseline-Sanitized (F1=1.000)",
+        "sdp_record": {
+          "id": "5729f0db6aef051400155126",
+          "question": "The Amazon region is home to how many species of insect?",
+          "context": "The region is home to about 2.5 million insect species, tens of thousands of plants, and some 2,000 birds and mammals. To date, at least 40,000 plant species, 2,200 fishes, 1,294 birds, 427 mammals, 428 amphibians, and 378 reptiles have been scientifically classified in the region. One in five of all the bird species in the world live in the rainforests of the Amazon, and one in five of the fish species live in Amazonian rivers and streams. Scientists have described between 96,660 and 128,843 invertebrate species in Brazil alone.",
+          "ground_truth_answers": [
+            "2.5 million",
+            "about 2.5 million",
+            "2.5 million"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "25 million",
+          "avg_latency_sec": 1.717,
+          "total_latency_sec": 171.7,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.01,
+          "f1": 1.0,
+          "em": 1
+        },
+        "sdp_top_ensemble_answers": "\"25 million\" × 100",
+        "baseline_standard": {
+          "id": "5729f0db6aef051400155126",
+          "question": "The Amazon region is home to how many species of insect?",
+          "context": "The region is home to about 2.5 million insect species, tens of thousands of plants, and some 2,000 birds and mammals. To date, at least 40,000 plant species, 2,200 fishes, 1,294 birds, 427 mammals, 428 amphibians, and 378 reptiles have been scientifically classified in the region. One in five of all the bird species in the world live in the rainforests of the Amazon, and one in five of the fish species live in Amazonian rivers and streams. Scientists have described between 96,660 and 128,843 invertebrate species in Brazil alone.",
+          "ground_truth_answers": [
+            "2.5 million",
+            "about 2.5 million",
+            "2.5 million"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "2.5 million",
+          "avg_latency_sec": 1.0782,
+          "total_latency_sec": 1.0782,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "5729f0db6aef051400155126",
+          "question": "The Amazon region is home to how many species of insect?",
+          "context": "The region is home to about 2.5 million insect species, tens of thousands of plants, and some 2,000 birds and mammals. To date, at least 40,000 plant species, 2,200 fishes, 1,294 birds, 427 mammals, 428 amphibians, and 378 reptiles have been scientifically classified in the region. One in five of all the bird species in the world live in the rainforests of the Amazon, and one in five of the fish species live in Amazonian rivers and streams. Scientists have described between 96,660 and 128,843 invertebrate species in Brazil alone.",
+          "ground_truth_answers": [
+            "2.5 million",
+            "about 2.5 million",
+            "2.5 million"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "2.5 million",
+          "avg_latency_sec": 1.2816,
+          "total_latency_sec": 1.2816,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        }
+      },
+      {
+        "case_type": "success",
+        "selection_reason": "SDP-ICL F1=1.000 (EM=1); 優於或持平 Baseline-Standard (F1=1.000); 優於 Baseline-Sanitized (F1=1.000)",
+        "sdp_record": {
+          "id": "571c3a685efbb31900334db3",
+          "question": "Of what group in the periodic table is oxygen a member?",
+          "context": "Oxygen is a chemical element with symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table and is a highly reactive nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium. At standard temperature and pressure, two atoms of the element bind to form dioxygen, a colorless and odorless diatomic gas with the formula O\n2. Diatomic oxygen gas constitutes 20.8% of the Earth's atmosphere. However, monitoring of atmospheric oxygen levels show a global downward trend, because of fossil-fuel burning. Oxygen is the most abundant element by mass in the Earth's crust as part of oxide compounds such as silicon dioxide, making up almost half of the crust's mass.",
+          "ground_truth_answers": [
+            "chalcogen",
+            "chalcogen",
+            "chalcogen",
+            "chalcogen",
+            "the chalcogen group"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "chalcogen",
+          "avg_latency_sec": 1.8838,
+          "total_latency_sec": 188.38,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.01,
+          "f1": 1.0,
+          "em": 1
+        },
+        "sdp_top_ensemble_answers": "\"chalcogen\" × 100",
+        "baseline_standard": {
+          "id": "571c3a685efbb31900334db3",
+          "question": "Of what group in the periodic table is oxygen a member?",
+          "context": "Oxygen is a chemical element with symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table and is a highly reactive nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium. At standard temperature and pressure, two atoms of the element bind to form dioxygen, a colorless and odorless diatomic gas with the formula O\n2. Diatomic oxygen gas constitutes 20.8% of the Earth's atmosphere. However, monitoring of atmospheric oxygen levels show a global downward trend, because of fossil-fuel burning. Oxygen is the most abundant element by mass in the Earth's crust as part of oxide compounds such as silicon dioxide, making up almost half of the crust's mass.",
+          "ground_truth_answers": [
+            "chalcogen",
+            "chalcogen",
+            "chalcogen",
+            "chalcogen",
+            "the chalcogen group"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "chalcogen",
+          "avg_latency_sec": 2.4179,
+          "total_latency_sec": 2.4179,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "571c3a685efbb31900334db3",
+          "question": "Of what group in the periodic table is oxygen a member?",
+          "context": "Oxygen is a chemical element with symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table and is a highly reactive nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium. At standard temperature and pressure, two atoms of the element bind to form dioxygen, a colorless and odorless diatomic gas with the formula O\n2. Diatomic oxygen gas constitutes 20.8% of the Earth's atmosphere. However, monitoring of atmospheric oxygen levels show a global downward trend, because of fossil-fuel burning. Oxygen is the most abundant element by mass in the Earth's crust as part of oxide compounds such as silicon dioxide, making up almost half of the crust's mass.",
+          "ground_truth_answers": [
+            "chalcogen",
+            "chalcogen",
+            "chalcogen",
+            "chalcogen",
+            "the chalcogen group"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "chalcogen",
+          "avg_latency_sec": 1.6555,
+          "total_latency_sec": 1.6555,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        }
+      }
+    ],
+    "partial": [
+      {
+        "case_type": "partial",
+        "selection_reason": "SDP-ICL F1=0.600 (介於 0.4~0.8); EM=0 但語意可能部分正確，適合說明 metric gap",
+        "sdp_record": {
+          "id": "5725cc38ec44d21400f3d5bb",
+          "question": "How did the principle treaties that form the European Union begin?",
+          "context": "The principal Treaties that form the European Union began with common rules for coal and steel, and then atomic energy, but more complete and formal institutions were established through the Treaty of Rome 1957 and the Maastricht Treaty 1992 (now: TFEU). Minor amendments were made during the 1960s and 1970s. Major amending treaties were signed to complete the development of a single, internal market in the Single European Act 1986, to further the development of a more social Europe in the Treaty of Amsterdam 1997, and to make minor amendments to the relative power of member states in the EU institutions in the Treaty of Nice 2001 and the Treaty of Lisbon 2007. Since its establishment, more member states have joined through a series of accession treaties, from the UK, Ireland, Denmark and Norway in 1972 (though Norway did not end up joining), Greece in 1979, Spain and Portugal 1985, Austria, Finland, Norway and Sweden in 1994 (though again Norway failed to join, because of lack of support in the referendum), the Czech Republic, Cyprus, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Slovakia and Slovenia in 2004, Romania and Bulgaria in 2007 and Croatia in 2013. Greenland signed a Treaty in 1985 giving it a special status.",
+          "ground_truth_answers": [
+            "with common rules for coal and steel, and then atomic energy",
+            "with common rules for coal and steel",
+            "with common rules for coal and steel",
+            "with common rules for coal and steel"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "coal and steel",
+          "avg_latency_sec": 2.0387,
+          "total_latency_sec": 203.87,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.04,
+          "f1": 0.6,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"coal and steel\" × 91 | \"common rules for coal and steel\" × 5 | \"with common rules for coal and steel\" × 3 | \"common rules for coal and steel atomic energy\" × 1",
+        "baseline_standard": {
+          "id": "5725cc38ec44d21400f3d5bb",
+          "question": "How did the principle treaties that form the European Union begin?",
+          "context": "The principal Treaties that form the European Union began with common rules for coal and steel, and then atomic energy, but more complete and formal institutions were established through the Treaty of Rome 1957 and the Maastricht Treaty 1992 (now: TFEU). Minor amendments were made during the 1960s and 1970s. Major amending treaties were signed to complete the development of a single, internal market in the Single European Act 1986, to further the development of a more social Europe in the Treaty of Amsterdam 1997, and to make minor amendments to the relative power of member states in the EU institutions in the Treaty of Nice 2001 and the Treaty of Lisbon 2007. Since its establishment, more member states have joined through a series of accession treaties, from the UK, Ireland, Denmark and Norway in 1972 (though Norway did not end up joining), Greece in 1979, Spain and Portugal 1985, Austria, Finland, Norway and Sweden in 1994 (though again Norway failed to join, because of lack of support in the referendum), the Czech Republic, Cyprus, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Slovakia and Slovenia in 2004, Romania and Bulgaria in 2007 and Croatia in 2013. Greenland signed a Treaty in 1985 giving it a special status.",
+          "ground_truth_answers": [
+            "with common rules for coal and steel, and then atomic energy",
+            "with common rules for coal and steel",
+            "with common rules for coal and steel",
+            "with common rules for coal and steel"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "coal and steel",
+          "avg_latency_sec": 1.6309,
+          "total_latency_sec": 1.6309,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 0.6,
+          "em": 0
+        },
+        "baseline_sanitized": {
+          "id": "5725cc38ec44d21400f3d5bb",
+          "question": "How did the principle treaties that form the European Union begin?",
+          "context": "The principal Treaties that form the European Union began with common rules for coal and steel, and then atomic energy, but more complete and formal institutions were established through the Treaty of Rome 1957 and the Maastricht Treaty 1992 (now: TFEU). Minor amendments were made during the 1960s and 1970s. Major amending treaties were signed to complete the development of a single, internal market in the Single European Act 1986, to further the development of a more social Europe in the Treaty of Amsterdam 1997, and to make minor amendments to the relative power of member states in the EU institutions in the Treaty of Nice 2001 and the Treaty of Lisbon 2007. Since its establishment, more member states have joined through a series of accession treaties, from the UK, Ireland, Denmark and Norway in 1972 (though Norway did not end up joining), Greece in 1979, Spain and Portugal 1985, Austria, Finland, Norway and Sweden in 1994 (though again Norway failed to join, because of lack of support in the referendum), the Czech Republic, Cyprus, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Slovakia and Slovenia in 2004, Romania and Bulgaria in 2007 and Croatia in 2013. Greenland signed a Treaty in 1985 giving it a special status.",
+          "ground_truth_answers": [
+            "with common rules for coal and steel, and then atomic energy",
+            "with common rules for coal and steel",
+            "with common rules for coal and steel",
+            "with common rules for coal and steel"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "coal and steel",
+          "avg_latency_sec": 3.081,
+          "total_latency_sec": 3.081,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 0.6,
+          "em": 0
+        }
+      },
+      {
+        "case_type": "partial",
+        "selection_reason": "SDP-ICL F1=0.600 (介於 0.4~0.8); EM=0 但語意可能部分正確，適合說明 metric gap",
+        "sdp_record": {
+          "id": "572941273f37b319004781b1",
+          "question": "What was the verdict on other alleged errors?",
+          "context": "Former IPCC chairman Robert Watson has said \"The mistakes all appear to have gone in the direction of making it seem like climate change is more serious by overstating the impact. That is worrying. The IPCC needs to look at this trend in the errors and ask why it happened\". Martin Parry, a climate expert who had been co-chair of the IPCC working group II, said that \"What began with a single unfortunate error over Himalayan glaciers has become a clamour without substance\" and the IPCC had investigated the other alleged mistakes, which were \"generally unfounded and also marginal to the assessment\".",
+          "ground_truth_answers": [
+            "\"generally unfounded and also marginal to the assessment\"",
+            "generally unfounded and also marginal to the assessment",
+            "generally unfounded and also marginal to the assessment"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "unfounded and marginal",
+          "avg_latency_sec": 1.8076,
+          "total_latency_sec": 180.76,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.06,
+          "f1": 0.6,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"unfounded and marginal\" × 77 | \"generally unfounded and also marginal\" × 13 | \"unfounded\" × 5 | \"generally unfounded\" × 2 | \"generally unfounded and also marginal to assessment\" × 2 | ... 另有 1 種不同答案",
+        "baseline_standard": null,
+        "baseline_sanitized": null
+      },
+      {
+        "case_type": "partial",
+        "selection_reason": "SDP-ICL F1=0.600 (介於 0.4~0.8); EM=0 但語意可能部分正確，適合說明 metric gap",
+        "sdp_record": {
+          "id": "5728eb1a3acd2414000e01c9",
+          "question": "Anarchists do not want to accept punishment for what reason?",
+          "context": "Some civil disobedients feel it is incumbent upon them to accept punishment because of their belief in the validity of the social contract, which is held to bind all to obey the laws that a government meeting certain standards of legitimacy has established, or else suffer the penalties set out in the law. Other civil disobedients who favor the existence of government still don't believe in the legitimacy of their particular government, or don't believe in the legitimacy of a particular law it has enacted. And still other civil disobedients, being anarchists, don't believe in the legitimacy of any government, and therefore see no need to accept punishment for a violation of criminal law that does not infringe the rights of others.",
+          "ground_truth_answers": [
+            "does not infringe the rights of others",
+            "don't believe in the legitimacy of any government",
+            "a violation of criminal law that does not infringe the rights of others",
+            "see no need to accept punishment for a violation of criminal law that does not infringe the rights of others",
+            "a violation of criminal law that does not infringe the rights of others."
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "infringing rights of others",
+          "avg_latency_sec": 2.2774,
+          "total_latency_sec": 227.74,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.17,
+          "f1": 0.6,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"infringing rights of others\" × 31 | \"they see no need to accept punishment for violation of criminal law that does not infringe rights of others\" × 26 | \"because it doesnt infringe rights of others\" × 12 | \"they dont believe in legitimacy of any government\" × 10 | \"because it does not infringe rights of others\" × 4 | ... 另有 12 種不同答案",
+        "baseline_standard": null,
+        "baseline_sanitized": null
+      },
+      {
+        "case_type": "partial",
+        "selection_reason": "SDP-ICL F1=0.600 (介於 0.4~0.8); EM=0 但語意可能部分正確，適合說明 metric gap",
+        "sdp_record": {
+          "id": "572a03a06aef0514001551ae",
+          "question": "What are the main threats facing the Amazon rainforest in the current century?",
+          "context": "One computer model of future climate change caused by greenhouse gas emissions shows that the Amazon rainforest could become unsustainable under conditions of severely reduced rainfall and increased temperatures, leading to an almost complete loss of rainforest cover in the basin by 2100. However, simulations of Amazon basin climate change across many different models are not consistent in their estimation of any rainfall response, ranging from weak increases to strong decreases. The result indicates that the rainforest could be threatened though the 21st century by climate change in addition to deforestation.",
+          "ground_truth_answers": [
+            "climate change in addition to deforestation",
+            "climate change in addition to deforestation",
+            "climate change in addition to deforestation"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "climate change and deforestation",
+          "avg_latency_sec": 1.8077,
+          "total_latency_sec": 180.77,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.02,
+          "f1": 0.6,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"climate change and deforestation\" × 80 | \"deforestation and climate change\" × 20",
+        "baseline_standard": null,
+        "baseline_sanitized": null
+      },
+      {
+        "case_type": "partial",
+        "selection_reason": "SDP-ICL F1=0.600 (介於 0.4~0.8); EM=0 但語意可能部分正確，適合說明 metric gap",
+        "sdp_record": {
+          "id": "57294baaaf94a219006aa26b",
+          "question": "What role did Michael Oppenheimer have in the IPCC's reports?",
+          "context": "Michael Oppenheimer, a long-time participant in the IPCC and coordinating lead author of the Fifth Assessment Report conceded in Science Magazine's State of the Planet 2008-2009 some limitations of the IPCC consensus approach and asks for concurring, smaller assessments of special problems instead of the large scale approach as in the previous IPCC assessment reports. It has become more important to provide a broader exploration of uncertainties. Others see as well mixed blessings of the drive for consensus within the IPCC process and ask to include dissenting or minority positions or to improve statements about uncertainties.",
+          "ground_truth_answers": [
+            "coordinating lead author of the Fifth Assessment Report",
+            "participant in the IPCC and coordinating lead author of the Fifth Assessment Report",
+            "coordinating lead author of the Fifth Assessment Report"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "coordinating lead author",
+          "avg_latency_sec": 1.8557,
+          "total_latency_sec": 185.57,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.01,
+          "f1": 0.6,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"coordinating lead author\" × 100",
+        "baseline_standard": null,
+        "baseline_sanitized": null
+      }
+    ],
+    "failure": [
+      {
+        "case_type": "failure",
+        "selection_reason": "SDP-ICL F1=0.000 (<=  0.2); Baseline-Standard answered correctly (F1=1.000), SDP introduced error -- good privacy-utility tradeoff example",
+        "sdp_record": {
+          "id": "571112ada58dae1900cd6bd0",
+          "question": "Other theories of the word's origin can be generally classed as what?",
+          "context": "Some disagree with such double or triple non-French linguistic origins, arguing that for the word to have spread into common use in France, it must have originated in the French language. The \"Hugues hypothesis\" argues that the name was derived by association with Hugues Capet, king of France, who reigned long before the Reformation. He was regarded by the Gallicans and Protestants as a noble man who respected people's dignity and lives. Janet Gray and other supporters of the hypothesis suggest that the name huguenote would be roughly equivalent to little Hugos, or those who want Hugo.",
+          "ground_truth_answers": [
+            "double or triple non-French linguistic origins",
+            "non-French linguistic origins"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "hugues hypothesis",
+          "avg_latency_sec": 1.9256,
+          "total_latency_sec": 192.56,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.1,
+          "f1": 0.0,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"hugues hypothesis\" × 39 | \"double or triple nonfrench linguistic origins\" × 29 | \"nonfrench linguistic origins\" × 24 | \"french language\" × 2 | \"hugues hypothesis is one theory however since you asked for other theories i will provide more general answer other theories\" × 1 | ... 另有 5 種不同答案",
+        "baseline_standard": {
+          "id": "571112ada58dae1900cd6bd0",
+          "question": "Other theories of the word's origin can be generally classed as what?",
+          "context": "Some disagree with such double or triple non-French linguistic origins, arguing that for the word to have spread into common use in France, it must have originated in the French language. The \"Hugues hypothesis\" argues that the name was derived by association with Hugues Capet, king of France, who reigned long before the Reformation. He was regarded by the Gallicans and Protestants as a noble man who respected people's dignity and lives. Janet Gray and other supporters of the hypothesis suggest that the name huguenote would be roughly equivalent to little Hugos, or those who want Hugo.",
+          "ground_truth_answers": [
+            "double or triple non-French linguistic origins",
+            "non-French linguistic origins"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "non-French linguistic origins",
+          "avg_latency_sec": 1.5819,
+          "total_latency_sec": 1.5819,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "571112ada58dae1900cd6bd0",
+          "question": "Other theories of the word's origin can be generally classed as what?",
+          "context": "Some disagree with such double or triple non-French linguistic origins, arguing that for the word to have spread into common use in France, it must have originated in the French language. The \"Hugues hypothesis\" argues that the name was derived by association with Hugues Capet, king of France, who reigned long before the Reformation. He was regarded by the Gallicans and Protestants as a noble man who respected people's dignity and lives. Janet Gray and other supporters of the hypothesis suggest that the name huguenote would be roughly equivalent to little Hugos, or those who want Hugo.",
+          "ground_truth_answers": [
+            "double or triple non-French linguistic origins",
+            "non-French linguistic origins"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "non-French linguistic origins",
+          "avg_latency_sec": 1.8786,
+          "total_latency_sec": 1.8786,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        }
+      },
+      {
+        "case_type": "failure",
+        "selection_reason": "SDP-ICL F1=0.000 (<=  0.2); ensemble concentrated (diversity=0.090) but still wrong, suggests first-stage error; Baseline-Standard answered correctly (F1=1.000), SDP introduced error -- good privacy-utility tradeoff example",
+        "sdp_record": {
+          "id": "572ff932a23a5019007fcbd7",
+          "question": "The idea that Islam can be apolitical isn't able to be embraced by whom?",
+          "context": "Islamism is a controversial concept not just because it posits a political role for Islam but also because its supporters believe their views merely reflect Islam, while the contrary idea that Islam is, or can be, apolitical is an error. Scholars and observers who do not believe that Islam is merely a political ideology include Fred Halliday, John Esposito and Muslim intellectuals like Javed Ahmad Ghamidi. Hayri Abaza argues the failure to distinguish between Islam and Islamism leads many in the West to support illiberal Islamic regimes, to the detriment of progressive moderates who seek to separate religion from politics.",
+          "ground_truth_answers": [
+            "its supporters",
+            "Scholars and observers",
+            "Islamism"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "muslim intellectuals like javed ahmad ghamidi",
+          "avg_latency_sec": 1.9218,
+          "total_latency_sec": 192.18,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.09,
+          "f1": 0.0,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"muslim intellectuals like javed ahmad ghamidi\" × 77 | \"scholars and observers\" × 8 | \"some scholars and observers\" × 5 | \"progressive moderates\" × 3 | \"some\" × 2 | ... 另有 4 種不同答案",
+        "baseline_standard": {
+          "id": "572ff932a23a5019007fcbd7",
+          "question": "The idea that Islam can be apolitical isn't able to be embraced by whom?",
+          "context": "Islamism is a controversial concept not just because it posits a political role for Islam but also because its supporters believe their views merely reflect Islam, while the contrary idea that Islam is, or can be, apolitical is an error. Scholars and observers who do not believe that Islam is merely a political ideology include Fred Halliday, John Esposito and Muslim intellectuals like Javed Ahmad Ghamidi. Hayri Abaza argues the failure to distinguish between Islam and Islamism leads many in the West to support illiberal Islamic regimes, to the detriment of progressive moderates who seek to separate religion from politics.",
+          "ground_truth_answers": [
+            "its supporters",
+            "Scholars and observers",
+            "Islamism"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "Scholars and observers",
+          "avg_latency_sec": 1.7625,
+          "total_latency_sec": 1.7625,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "572ff932a23a5019007fcbd7",
+          "question": "The idea that Islam can be apolitical isn't able to be embraced by whom?",
+          "context": "Islamism is a controversial concept not just because it posits a political role for Islam but also because its supporters believe their views merely reflect Islam, while the contrary idea that Islam is, or can be, apolitical is an error. Scholars and observers who do not believe that Islam is merely a political ideology include Fred Halliday, John Esposito and Muslim intellectuals like Javed Ahmad Ghamidi. Hayri Abaza argues the failure to distinguish between Islam and Islamism leads many in the West to support illiberal Islamic regimes, to the detriment of progressive moderates who seek to separate religion from politics.",
+          "ground_truth_answers": [
+            "its supporters",
+            "Scholars and observers",
+            "Islamism"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "Scholars and observers",
+          "avg_latency_sec": 0.9427,
+          "total_latency_sec": 0.9427,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        }
+      },
+      {
+        "case_type": "failure",
+        "selection_reason": "SDP-ICL F1=0.000 (<=  0.2); ensemble concentrated (diversity=0.040) but still wrong, suggests first-stage error; Baseline-Standard answered correctly (F1=1.000), SDP introduced error -- good privacy-utility tradeoff example",
+        "sdp_record": {
+          "id": "5725cbb289a1e219009abed4",
+          "question": "What was believed to be the cause of devastation to the civilization?",
+          "context": "The first European to travel the length of the Amazon River was Francisco de Orellana in 1542. The BBC's Unnatural Histories presents evidence that Orellana, rather than exaggerating his claims as previously thought, was correct in his observations that a complex civilization was flourishing along the Amazon in the 1540s. It is believed that the civilization was later devastated by the spread of diseases from Europe, such as smallpox. Since the 1970s, numerous geoglyphs have been discovered on deforested land dating between AD 0–1250, furthering claims about Pre-Columbian civilizations. Ondemar Dias is accredited with first discovering the geoglyphs in 1977 and Alceu Ranzi with furthering their discovery after flying over Acre. The BBC's Unnatural Histories presented evidence that the Amazon rainforest, rather than being a pristine wilderness, has been shaped by man for at least 11,000 years through practices such as forest gardening and terra preta.",
+          "ground_truth_answers": [
+            "diseases from Europe",
+            "the spread of diseases from Europe",
+            "spread of diseases from Europe"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "smallpox",
+          "avg_latency_sec": 1.8511,
+          "total_latency_sec": 185.11,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.04,
+          "f1": 0.0,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"smallpox\" × 66 | \"diseases from europe\" × 18 | \"spread of diseases from europe\" × 10 | \"spread of diseases from europe such as smallpox\" × 6",
+        "baseline_standard": {
+          "id": "5725cbb289a1e219009abed4",
+          "question": "What was believed to be the cause of devastation to the civilization?",
+          "context": "The first European to travel the length of the Amazon River was Francisco de Orellana in 1542. The BBC's Unnatural Histories presents evidence that Orellana, rather than exaggerating his claims as previously thought, was correct in his observations that a complex civilization was flourishing along the Amazon in the 1540s. It is believed that the civilization was later devastated by the spread of diseases from Europe, such as smallpox. Since the 1970s, numerous geoglyphs have been discovered on deforested land dating between AD 0–1250, furthering claims about Pre-Columbian civilizations. Ondemar Dias is accredited with first discovering the geoglyphs in 1977 and Alceu Ranzi with furthering their discovery after flying over Acre. The BBC's Unnatural Histories presented evidence that the Amazon rainforest, rather than being a pristine wilderness, has been shaped by man for at least 11,000 years through practices such as forest gardening and terra preta.",
+          "ground_truth_answers": [
+            "diseases from Europe",
+            "the spread of diseases from Europe",
+            "spread of diseases from Europe"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "Spread of diseases from Europe.",
+          "avg_latency_sec": 1.5961,
+          "total_latency_sec": 1.5961,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "5725cbb289a1e219009abed4",
+          "question": "What was believed to be the cause of devastation to the civilization?",
+          "context": "The first European to travel the length of the Amazon River was Francisco de Orellana in 1542. The BBC's Unnatural Histories presents evidence that Orellana, rather than exaggerating his claims as previously thought, was correct in his observations that a complex civilization was flourishing along the Amazon in the 1540s. It is believed that the civilization was later devastated by the spread of diseases from Europe, such as smallpox. Since the 1970s, numerous geoglyphs have been discovered on deforested land dating between AD 0–1250, furthering claims about Pre-Columbian civilizations. Ondemar Dias is accredited with first discovering the geoglyphs in 1977 and Alceu Ranzi with furthering their discovery after flying over Acre. The BBC's Unnatural Histories presented evidence that the Amazon rainforest, rather than being a pristine wilderness, has been shaped by man for at least 11,000 years through practices such as forest gardening and terra preta.",
+          "ground_truth_answers": [
+            "diseases from Europe",
+            "the spread of diseases from Europe",
+            "spread of diseases from Europe"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "Spread of diseases from Europe.",
+          "avg_latency_sec": 1.5632,
+          "total_latency_sec": 1.5632,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        }
+      },
+      {
+        "case_type": "failure",
+        "selection_reason": "SDP-ICL F1=0.000 (<=  0.2); ensemble concentrated (diversity=0.030) but still wrong, suggests first-stage error; Baseline-Standard answered correctly (F1=1.000), SDP introduced error -- good privacy-utility tradeoff example",
+        "sdp_record": {
+          "id": "572a020f6aef05140015519b",
+          "question": "What amount of the worlds carbon is stored in the Amazon forest?",
+          "context": "Environmentalists are concerned about loss of biodiversity that will result from destruction of the forest, and also about the release of the carbon contained within the vegetation, which could accelerate global warming. Amazonian evergreen forests account for about 10% of the world's terrestrial primary productivity and 10% of the carbon stores in ecosystems—of the order of 1.1 × 1011 metric tonnes of carbon. Amazonian forests are estimated to have accumulated 0.62 ± 0.37 tons of carbon per hectare per year between 1975 and 1996.",
+          "ground_truth_answers": [
+            "10% of the carbon stores",
+            "10%",
+            "10%"
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "11 × 1011 metric tonnes",
+          "avg_latency_sec": 1.9389,
+          "total_latency_sec": 193.89,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.03,
+          "f1": 0.0,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"11 × 1011 metric tonnes\" × 73 | \"10\" × 16 | \"11 × 1011 metric tonnes of carbon\" × 11",
+        "baseline_standard": {
+          "id": "572a020f6aef05140015519b",
+          "question": "What amount of the worlds carbon is stored in the Amazon forest?",
+          "context": "Environmentalists are concerned about loss of biodiversity that will result from destruction of the forest, and also about the release of the carbon contained within the vegetation, which could accelerate global warming. Amazonian evergreen forests account for about 10% of the world's terrestrial primary productivity and 10% of the carbon stores in ecosystems—of the order of 1.1 × 1011 metric tonnes of carbon. Amazonian forests are estimated to have accumulated 0.62 ± 0.37 tons of carbon per hectare per year between 1975 and 1996.",
+          "ground_truth_answers": [
+            "10% of the carbon stores",
+            "10%",
+            "10%"
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "10%",
+          "avg_latency_sec": 1.4704,
+          "total_latency_sec": 1.4704,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "572a020f6aef05140015519b",
+          "question": "What amount of the worlds carbon is stored in the Amazon forest?",
+          "context": "Environmentalists are concerned about loss of biodiversity that will result from destruction of the forest, and also about the release of the carbon contained within the vegetation, which could accelerate global warming. Amazonian evergreen forests account for about 10% of the world's terrestrial primary productivity and 10% of the carbon stores in ecosystems—of the order of 1.1 × 1011 metric tonnes of carbon. Amazonian forests are estimated to have accumulated 0.62 ± 0.37 tons of carbon per hectare per year between 1975 and 1996.",
+          "ground_truth_answers": [
+            "10% of the carbon stores",
+            "10%",
+            "10%"
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "10%",
+          "avg_latency_sec": 1.2763,
+          "total_latency_sec": 1.2763,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        }
+      },
+      {
+        "case_type": "failure",
+        "selection_reason": "SDP-ICL F1=0.000 (<=  0.2); ensemble concentrated (diversity=0.030) but still wrong, suggests first-stage error; Baseline-Standard answered correctly (F1=1.000), SDP introduced error -- good privacy-utility tradeoff example",
+        "sdp_record": {
+          "id": "5729fb003f37b31900478628",
+          "question": "As a person gets older, what does the skin produce less of?",
+          "context": "It is conjectured that a progressive decline in hormone levels with age is partially responsible for weakened immune responses in aging individuals. Conversely, some hormones are regulated by the immune system, notably thyroid hormone activity. The age-related decline in immune function is also related to decreasing vitamin D levels in the elderly. As people age, two things happen that negatively affect their vitamin D levels. First, they stay indoors more due to decreased activity levels. This means that they get less sun and therefore produce less cholecalciferol via UVB radiation. Second, as a person ages the skin becomes less adept at producing vitamin D.",
+          "ground_truth_answers": [
+            "vitamin D",
+            "vitamin D",
+            "vitamin D."
+          ],
+          "method": "SDP-ICL",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 100,
+          "seed": null,
+          "final_answer": "cholecalciferol",
+          "avg_latency_sec": 1.8205,
+          "total_latency_sec": 182.05,
+          "success_count": 100,
+          "fail_count": 0,
+          "answer_diversity": 0.03,
+          "f1": 0.0,
+          "em": 0
+        },
+        "sdp_top_ensemble_answers": "\"cholecalciferol\" × 93 | \"vitamin d\" × 6 | \"cholecalciferol via uvb radiation however since you asked about skin itself i will correct my answer to vitamin d\" × 1",
+        "baseline_standard": {
+          "id": "5729fb003f37b31900478628",
+          "question": "As a person gets older, what does the skin produce less of?",
+          "context": "It is conjectured that a progressive decline in hormone levels with age is partially responsible for weakened immune responses in aging individuals. Conversely, some hormones are regulated by the immune system, notably thyroid hormone activity. The age-related decline in immune function is also related to decreasing vitamin D levels in the elderly. As people age, two things happen that negatively affect their vitamin D levels. First, they stay indoors more due to decreased activity levels. This means that they get less sun and therefore produce less cholecalciferol via UVB radiation. Second, as a person ages the skin becomes less adept at producing vitamin D.",
+          "ground_truth_answers": [
+            "vitamin D",
+            "vitamin D",
+            "vitamin D."
+          ],
+          "method": "Baseline-Standard",
+          "model": "llama",
+          "exemplar_type": "standard",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "vitamin D",
+          "avg_latency_sec": 1.8653,
+          "total_latency_sec": 1.8653,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        },
+        "baseline_sanitized": {
+          "id": "5729fb003f37b31900478628",
+          "question": "As a person gets older, what does the skin produce less of?",
+          "context": "It is conjectured that a progressive decline in hormone levels with age is partially responsible for weakened immune responses in aging individuals. Conversely, some hormones are regulated by the immune system, notably thyroid hormone activity. The age-related decline in immune function is also related to decreasing vitamin D levels in the elderly. As people age, two things happen that negatively affect their vitamin D levels. First, they stay indoors more due to decreased activity levels. This means that they get less sun and therefore produce less cholecalciferol via UVB radiation. Second, as a person ages the skin becomes less adept at producing vitamin D.",
+          "ground_truth_answers": [
+            "vitamin D",
+            "vitamin D",
+            "vitamin D."
+          ],
+          "method": "Baseline-Sanitized",
+          "model": "llama",
+          "exemplar_type": "sanitized",
+          "N": 1,
+          "seed": 42,
+          "final_answer": "vitamin D",
+          "avg_latency_sec": 4.5873,
+          "total_latency_sec": 4.5873,
+          "success_count": 1,
+          "fail_count": 0,
+          "answer_diversity": null,
+          "f1": 1.0,
+          "em": 1
+        }
+      }
+    ]
+  }
+}
