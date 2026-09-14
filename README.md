@@ -17,16 +17,16 @@ This repository is a research prototype. The scored paper utility curves are pro
 
 ## Key features and contributions
 
-| Component | Paper design | Status in this repository |
-|-----------|--------------|---------------------------|
-| Phase I static sanitization | Replace PII with type-preserving placeholders | **Implemented** in [`prepare_sanitized.py`](prepare_sanitized.py) |
-| Phase II dynamic session masking | Remap static placeholders to session-specific tokens | **Not located** as a complete implementation |
-| Random / disjoint demonstration subsampling | Disjoint subsets of size \(K\) for each of \(N\) votes | **Partial**: independent `random.sample` draws; disjointness is not enforced |
-| Candidate Extractor (LLM1) | Short atomic answers | **Implemented** in SDP runners and baseline runners |
-| Differentially private aggregation | Laplace noise \(\eta_c\sim\mathrm{Laplace}(0,1/\epsilon)\), noisy argmax | **Implemented offline** in [`analyze_sdp_voting.py`](analyze_sdp_voting.py) |
-| Mapping module | Inverse-map selected tokens only | **Only** in [`test_total_time.py`](test_total_time.py) |
-| Isolated Reconstructor (LLM2) | Query + selected answer only | **Only** in [`test_total_time.py`](test_total_time.py) |
-| Session-level privacy accounting | Cumulative budget / query limits | **Not located** |
+| Component                                   | Paper design                                                             |
+| ------------------------------------------- | ------------------------------------------------------------------------ |
+| Phase I static sanitization                 | Replace PII with type-preserving placeholders                            |
+| Phase II dynamic session masking            | Remap static placeholders to session-specific tokens                     |
+| Random / disjoint demonstration subsampling | Disjoint subsets of size \(K\) for each of \(N\) votes                   |
+| Candidate Extractor (LLM1)                  | Short atomic answers                                                     |
+| Differentially private aggregation          | Laplace noise \(\eta_c\sim\mathrm{Laplace}(0,1/\epsilon)\), noisy argmax |
+| Mapping module                              | Inverse-map selected tokens only                                         |
+| Isolated Reconstructor (LLM2)               | Query + selected answer only                                             |
+| Session-level privacy accounting            | Cumulative budget / query limits                                         |
 
 ## System architecture
 
@@ -155,10 +155,10 @@ python -m spacy download en_core_web_trf
 
 Environment variables (create a local `.env`; do not commit secrets):
 
-| Variable | Used by | Purpose |
-|----------|---------|---------|
-| `HUGGINGFACE_TOKEN` | local HF downloads / gated models | Authentication |
-| `GEMINI_API_KEY` | optional Gemini path in ensemble scripts | External API |
+| Variable            | Used by                                  | Purpose        |
+| ------------------- | ---------------------------------------- | -------------- |
+| `HUGGINGFACE_TOKEN` | local HF downloads / gated models        | Authentication |
+| `GEMINI_API_KEY`    | optional Gemini path in ensemble scripts | External API   |
 
 There is no committed `.env.example`. Do not commit real credentials.
 
@@ -488,14 +488,14 @@ python run_sdp_inference_dgx_v2.py
 
 Hardcoded defaults include:
 
-| Parameter | Value |
-|-----------|-------|
-| `N_ENSEMBLES` | `100` |
-| `K_SHOTS` | `3` |
-| `MAX_NEW_TOKENS` | `50` |
-| `MAX_CONCURRENT` | `4` |
-| `TARGET_CONTEXT_LENGTH` | `8192` |
-| Test set | `data/qa_validation_set_5000.json` |
+| Parameter               | Value                              |
+| ----------------------- | ---------------------------------- |
+| `N_ENSEMBLES`           | `100`                              |
+| `K_SHOTS`               | `3`                                |
+| `MAX_NEW_TOKENS`        | `50`                               |
+| `MAX_CONCURRENT`        | `4`                                |
+| `TARGET_CONTEXT_LENGTH` | `8192`                             |
+| Test set                | `data/qa_validation_set_5000.json` |
 
 Outputs (JSONL):
 
@@ -609,14 +609,14 @@ python test_total_time.py
 
 Hardcoded defaults:
 
-| Parameter | Value |
-|-----------|-------|
-| `MODEL_TYPE` | `qwen` |
-| `N_TEST_QUESTIONS` | `5` |
-| `N_DP_ICL` | `100` |
-| `N_SDP_ICL` | `5` |
-| `GAUSSIAN_SIGMA` | `1.0` |
-| `LAPLACE_SCALE` | `1.0` (fixed; **not** `1/ε`) |
+| Parameter          | Value                        |
+| ------------------ | ---------------------------- |
+| `MODEL_TYPE`       | `qwen`                       |
+| `N_TEST_QUESTIONS` | `5`                          |
+| `N_DP_ICL`         | `100`                        |
+| `N_SDP_ICL`        | `5`                          |
+| `GAUSSIAN_SIGMA`   | `1.0`                        |
+| `LAPLACE_SCALE`    | `1.0` (fixed; **not** `1/ε`) |
 
 This is the only script that implements mapping + LLM2 recomposition in the SDP path. Stage timings include retrieve / LLM / total (and TTFT for baseline RAG). Example artifact: [`results/timing/timing_comparison_20260316_130922.json`](results/timing/timing_comparison_20260316_130922.json).
 
@@ -630,16 +630,16 @@ python scripts/find_qualitative_cases.py --top-k 5 --model qwen
 
 Verified CLI options (`python scripts/find_qualitative_cases.py --help`):
 
-| Argument | Default | Meaning |
-|----------|---------|---------|
-| `--input` | auto-scan `results/sdp/val_5000/*.jsonl` | SDP JSONL paths |
-| `--baseline` | auto-scan `results/baselines/multiseed/*.jsonl` | Baseline JSONL |
-| `--output-dir` | `outputs/full_results` | Output directory |
-| `--top-k` | `5` | Cases per category |
-| `--model` | unset | `qwen` or `llama` |
-| `--epsilon` | unset | Reserved; current JSONL has no ε field |
-| `--n` | unset | Reserved; majority vote over stored answers |
-| `--require-baseline` | off | Require matching baseline answers |
+| Argument             | Default                                         | Meaning                                     |
+| -------------------- | ----------------------------------------------- | ------------------------------------------- |
+| `--input`            | auto-scan `results/sdp/val_5000/*.jsonl`        | SDP JSONL paths                             |
+| `--baseline`         | auto-scan `results/baselines/multiseed/*.jsonl` | Baseline JSONL                              |
+| `--output-dir`       | `outputs/full_results`                          | Output directory                            |
+| `--top-k`            | `5`                                             | Cases per category                          |
+| `--model`            | unset                                           | `qwen` or `llama`                           |
+| `--epsilon`          | unset                                           | Reserved; current JSONL has no ε field      |
+| `--n`                | unset                                           | Reserved; majority vote over stored answers |
+| `--require-baseline` | off                                             | Require matching baseline answers           |
 
 Outputs: `qualitative_candidates.{json,csv,md}` under the chosen output directory.
 
@@ -649,23 +649,23 @@ Outputs: `qualitative_candidates.{json,csv,md}` under the chosen output director
 
 Almost all runners use module-level constants. Important parameters that actually exist:
 
-| Parameter | Where | Typical value | Controls |
-|-----------|-------|---------------|----------|
-| `N_ENSEMBLES` / `N_SDP_ICL` / `N_DP_ICL` | SDP runners / `test_total_time.py` | 100 / 5 / 100 | Ensemble size \(N\) |
-| `K_SHOTS` | runners | 3 | Demonstrations per prompt |
-| `EPSILON_VALUES` | `analyze_sdp_voting.py` | includes 0.1, 1.0, inf | Privacy budgets for offline DP |
-| `MONTE_CARLO_TRIALS` | `analyze_sdp_voting.py` | 100 | DP simulation repeats |
-| `NUM_WORKERS` | `analyze_sdp_voting.py` | `None` → CPU count | Parallel (N, ε) jobs |
-| `MAX_CONCURRENT` | API runners | 4 | Async request concurrency |
-| `MAX_NEW_TOKENS` | runners | 50 (SDP) / 200–300 (baselines) | Generation length |
-| `QWEN_MODEL_PATH` / `LLAMA_MODEL_PATH` | `run_ensemble_v1_opt.py` | HF model IDs | Local models |
-| `LLMSTER_MODEL_NAME_*` / `MODEL_MAPPING` | API runners | local server names | Served models |
-| `API_BASE_URL` | API runners | `http://127.0.0.1:1234` | Inference server |
-| `SEEDS` | multiseed scripts | `[42,123,456,789,2026]` | RQ1 multi-seed |
-| `RANDOM_SEED` / `random.seed(42)` | data + runners | 42 | Reproducibility |
-| `NUM_QA_SAMPLES` | `create_qa_set.py` | 5000 | Utility set size |
-| `NUM_ATTACK_SAMPLES` | `create_attack_set.py` | 100 | Attack set size |
-| `OUTPUT_PATH` / task `task_name` | many scripts | under `data/` or `results/` | Outputs |
+| Parameter                                | Where                              | Typical value                  | Controls                       |
+| ---------------------------------------- | ---------------------------------- | ------------------------------ | ------------------------------ |
+| `N_ENSEMBLES` / `N_SDP_ICL` / `N_DP_ICL` | SDP runners / `test_total_time.py` | 100 / 5 / 100                  | Ensemble size \(N\)            |
+| `K_SHOTS`                                | runners                            | 3                              | Demonstrations per prompt      |
+| `EPSILON_VALUES`                         | `analyze_sdp_voting.py`            | includes 0.1, 1.0, inf         | Privacy budgets for offline DP |
+| `MONTE_CARLO_TRIALS`                     | `analyze_sdp_voting.py`            | 100                            | DP simulation repeats          |
+| `NUM_WORKERS`                            | `analyze_sdp_voting.py`            | `None` → CPU count             | Parallel (N, ε) jobs           |
+| `MAX_CONCURRENT`                         | API runners                        | 4                              | Async request concurrency      |
+| `MAX_NEW_TOKENS`                         | runners                            | 50 (SDP) / 200–300 (baselines) | Generation length              |
+| `QWEN_MODEL_PATH` / `LLAMA_MODEL_PATH`   | `run_ensemble_v1_opt.py`           | HF model IDs                   | Local models                   |
+| `LLMSTER_MODEL_NAME_*` / `MODEL_MAPPING` | API runners                        | local server names             | Served models                  |
+| `API_BASE_URL`                           | API runners                        | `http://127.0.0.1:1234`        | Inference server               |
+| `SEEDS`                                  | multiseed scripts                  | `[42,123,456,789,2026]`        | RQ1 multi-seed                 |
+| `RANDOM_SEED` / `random.seed(42)`        | data + runners                     | 42                             | Reproducibility                |
+| `NUM_QA_SAMPLES`                         | `create_qa_set.py`                 | 5000                           | Utility set size               |
+| `NUM_ATTACK_SAMPLES`                     | `create_attack_set.py`             | 100                            | Attack set size                |
+| `OUTPUT_PATH` / task `task_name`         | many scripts                       | under `data/` or `results/`    | Outputs                        |
 
 There is no unified YAML/CLI config layer.
 
@@ -690,7 +690,7 @@ Implemented in [`leakage_matcher.py`](leakage_matcher.py):
 [`evaluate_baselines.py`](evaluate_baselines.py) computes per-sample ASR as:
 
 \[
-\mathrm{ASR}=\min\left(\frac{\text{leakage score}}{\min(|\mathrm{prompted\_piis}|, 9)}, 1\right)
+\mathrm{ASR}=\min\left(\frac{\text{leakage score}}{\min(|\mathrm{prompted_piis}|, 9)}, 1\right)
 \]
 
 and averages over attack samples (reported as a percentage). The denominator cap of 9 reflects an assumed maximum of roughly 3 exemplars × up to 3 PII fields.
@@ -710,47 +710,47 @@ Distinguish carefully between **repository artifacts** and **thesis-reported** n
 
 ### Thesis-reported reference values (label: thesis-reported)
 
-| Result | Value |
-|--------|-------|
-| Qwen Standard ICL Weighted ASR | 62.70% |
-| Qwen Sanitized ICL Weighted ASR | 0.00% |
-| Llama Standard ICL Weighted ASR | 81.93% |
-| Llama Sanitized ICL Weighted ASR | 0.01% |
-| Qwen SDP-ICL \(N=20,\epsilon=0.1\) F1 | 89.08% |
-| Qwen SDP-ICL \(N=5,\epsilon=0.1\) F1 | 88.16% |
+| Result                                              | Value   |
+| --------------------------------------------------- | ------- |
+| Qwen Standard ICL Weighted ASR                      | 62.70%  |
+| Qwen Sanitized ICL Weighted ASR                     | 0.00%   |
+| Llama Standard ICL Weighted ASR                     | 81.93%  |
+| Llama Sanitized ICL Weighted ASR                    | 0.01%   |
+| Qwen SDP-ICL \(N=20,\epsilon=0.1\) F1               | 89.08%  |
+| Qwen SDP-ICL \(N=5,\epsilon=0.1\) F1                | 88.16%  |
 | Traditional DP-ICL single-query latency (\(N=100\)) | 39.93 s |
-| SDP-ICL single-query latency (\(N=5\)) | 2.66 s |
+| SDP-ICL single-query latency (\(N=5\))              | 2.66 s  |
 
 ### Consistent with repository artifacts
 
 From [`results/dp_analysis_report_5000.json`](results/dp_analysis_report_5000.json) (Qwen sanitized):
 
-| \(N\) | \(\epsilon\) | EM (%) | F1 (%) |
-|------:|:-------------|-------:|-------:|
-| 5 | 0.1 | 78.05 | **88.16** |
-| 20 | 0.1 | 79.65 | **89.08** |
+| \(N\) | \(\epsilon\) | EM (%) |    F1 (%) |
+| ----: | :----------- | -----: | --------: |
+|     5 | 0.1          |  78.05 | **88.16** |
+|    20 | 0.1          |  79.65 | **89.08** |
 
 From [`results/timing/timing_comparison_20260316_130922.json`](results/timing/timing_comparison_20260316_130922.json) (Qwen, 5 questions):
 
-| Method | Mean total latency (s) |
-|--------|------------------------:|
-| Baseline RAG | 1.77 |
-| DP-ICL \(N=100\) | **39.93** |
-| SDP-ICL \(N=5\) | **2.66** |
+| Method           | Mean total latency (s) |
+| ---------------- | ---------------------: |
+| Baseline RAG     |                   1.77 |
+| DP-ICL \(N=100\) |              **39.93** |
+| SDP-ICL \(N=5\)  |               **2.66** |
 
 ### Recomputed from committed singleseed baselines (not identical to all thesis ASR numbers)
 
 From [`results/baselines/singleseed/`](results/baselines/singleseed/) using the repository Weighted ASR code:
 
-| Setting | Metric |
-|---------|--------|
-| Qwen Standard Attack | ASR 59.95% |
-| Qwen Sanitized Attack | ASR 0.00% |
-| Llama Standard Attack | ASR 58.76% |
-| Llama Sanitized Attack | ASR 0.00% |
-| Qwen Standard QA (500) | EM 79.40 / F1 88.64 |
-| Qwen Sanitized QA (500) | EM 79.60 / F1 89.02 |
-| Llama Standard QA (500) | EM 74.40 / F1 88.07 |
+| Setting                  | Metric              |
+| ------------------------ | ------------------- |
+| Qwen Standard Attack     | ASR 59.95%          |
+| Qwen Sanitized Attack    | ASR 0.00%           |
+| Llama Standard Attack    | ASR 58.76%          |
+| Llama Sanitized Attack   | ASR 0.00%           |
+| Qwen Standard QA (500)   | EM 79.40 / F1 88.64 |
+| Qwen Sanitized QA (500)  | EM 79.60 / F1 89.02 |
+| Llama Standard QA (500)  | EM 74.40 / F1 88.07 |
 | Llama Sanitized QA (500) | EM 74.00 / F1 86.77 |
 
 The Llama Standard Attack ASR in the committed singleseed file (**58.76%**) does **not** match the thesis-reported **81.93%**. Treat 81.93% as thesis-reported unless regenerated under the exact multi-seed / prompt configuration used for the thesis tables. Older attack iterations appear under `results/qwen_old/` (gitignored in part).
@@ -784,32 +784,3 @@ The Llama Standard Attack ASR in the committed singleseed file (**58.76%**) does
 - Cumulative / long-horizon privacy accounting is incomplete.
 - Reproducibility friction: absolute paths, result-path drift (`results/` vs `results/baselines/singleseed/`), and a machine-local `packaging` pin in `requirements.txt`.
 - `requirements.txt` is a full environment freeze and may be difficult to install outside the original CUDA/conda setup.
-
-## Citation
-
-```bibtex
-@thesis{sdpicl_placeholder,
-  title     = {SDP-ICL: A Dual-Layer Sanitization and Differential Privacy Framework for In-Context Learning in Enterprise Question Answering},
-  author    = {[AUTHOR NAME]},
-  year      = {[YEAR]},
-  school    = {[INSTITUTION]},
-  type      = {[Thesis type, e.g., Master's thesis]},
-  note      = {[DOI / URL / publisher fields unavailable — placeholders only]}
-}
-```
-
-Related literature references used during development appear in `references.bib` (gitignored in this workspace snapshot; not required to run the code).
-
-## License
-
-No license file was found in this repository. No license has yet been specified.
-
-## Acknowledgments / runtime backends
-
-Model inference in this repository is implemented through:
-
-- **Hugging Face Transformers + bitsandbytes 4-bit** (`run_ensemble_v1*.py`)
-- **OpenAI-compatible local HTTP API** (LM Studio / llmster-style endpoints in `run_sdp_inference_dgx_*.py`, `run_baselines_dgx_multiseed.py`, `test_total_time.py`)
-- Optional **Google Gemini** path in ensemble scripts when `GEMINI_API_KEY` is set
-
-No vLLM or Ollama client was identified as the primary experimental path.

@@ -19,16 +19,16 @@
 
 ## 主要特點與貢獻
 
-| 元件 | 論文設計 | 本儲存庫狀態 |
-|------|----------|--------------|
-| Phase I 靜態淨化 | 以保留型別的佔位符取代 PII | **已實作**於 [`prepare_sanitized.py`](prepare_sanitized.py) |
-| Phase II 動態 session masking | 將靜態佔位符重映射為 session 專屬 token | **未找到**完整實作 |
-| 隨機／互斥示範子採樣 | 每個投票使用互斥的 \(K\) 筆子集 | **部分**：獨立 `random.sample`，未強制互斥 |
-| Candidate Extractor（LLM1） | 短、原子化答案 | **已實作**於 SDP／baseline runners |
-| 差分隱私聚合 | Laplace 噪音 \(\eta_c\sim\mathrm{Laplace}(0,1/\epsilon)\)，noisy argmax | **離線實作**於 [`analyze_sdp_voting.py`](analyze_sdp_voting.py) |
-| Mapping module | 只對選中答案做逆映射 | **僅**於 [`test_total_time.py`](test_total_time.py) |
-| Isolated Reconstructor（LLM2） | 只接收問題與選中答案 | **僅**於 [`test_total_time.py`](test_total_time.py) |
-| Session 級隱私會計 | 累積預算／查詢上限 | **未找到** |
+| 元件                           | 論文設計                                                                |
+| ------------------------------ | ----------------------------------------------------------------------- |
+| Phase I 靜態淨化               | 以保留型別的佔位符取代 PII                                              |
+| Phase II 動態 session masking  | 將靜態佔位符重映射為 session 專屬 token                                 |
+| 隨機／互斥示範子採樣           | 每個投票使用互斥的 \(K\) 筆子集                                         |
+| Candidate Extractor（LLM1）    | 短、原子化答案                                                          |
+| 差分隱私聚合                   | Laplace 噪音 \(\eta_c\sim\mathrm{Laplace}(0,1/\epsilon)\)，noisy argmax |
+| Mapping module                 | 只對選中答案做逆映射                                                    |
+| Isolated Reconstructor（LLM2） | 只接收問題與選中答案                                                    |
+| Session 級隱私會計             | 累積預算／查詢上限                                                      |
 
 ## 系統架構
 
@@ -157,10 +157,10 @@ python -m spacy download en_core_web_trf
 
 環境變數（建立本機 `.env`；勿提交密鑰）：
 
-| 變數 | 使用者 | 用途 |
-|------|--------|------|
-| `HUGGINGFACE_TOKEN` | 本地 HF 下載／gated 模型 | 認證 |
-| `GEMINI_API_KEY` | ensemble 腳本可選 Gemini 路徑 | 外部 API |
+| 變數                | 使用者                        | 用途     |
+| ------------------- | ----------------------------- | -------- |
+| `HUGGINGFACE_TOKEN` | 本地 HF 下載／gated 模型      | 認證     |
+| `GEMINI_API_KEY`    | ensemble 腳本可選 Gemini 路徑 | 外部 API |
 
 沒有提交 `.env.example`。請勿提交真實憑證。
 
@@ -490,14 +490,14 @@ python run_sdp_inference_dgx_v2.py
 
 硬編碼預設值：
 
-| 參數 | 值 |
-|------|----|
-| `N_ENSEMBLES` | `100` |
-| `K_SHOTS` | `3` |
-| `MAX_NEW_TOKENS` | `50` |
-| `MAX_CONCURRENT` | `4` |
-| `TARGET_CONTEXT_LENGTH` | `8192` |
-| 測試集 | `data/qa_validation_set_5000.json` |
+| 參數                    | 值                                 |
+| ----------------------- | ---------------------------------- |
+| `N_ENSEMBLES`           | `100`                              |
+| `K_SHOTS`               | `3`                                |
+| `MAX_NEW_TOKENS`        | `50`                               |
+| `MAX_CONCURRENT`        | `4`                                |
+| `TARGET_CONTEXT_LENGTH` | `8192`                             |
+| 測試集                  | `data/qa_validation_set_5000.json` |
 
 輸出（JSONL）：
 
@@ -611,14 +611,14 @@ python test_total_time.py
 
 硬編碼預設：
 
-| 參數 | 值 |
-|------|----|
-| `MODEL_TYPE` | `qwen` |
-| `N_TEST_QUESTIONS` | `5` |
-| `N_DP_ICL` | `100` |
-| `N_SDP_ICL` | `5` |
-| `GAUSSIAN_SIGMA` | `1.0` |
-| `LAPLACE_SCALE` | `1.0`（固定；**不是** `1/ε`） |
+| 參數               | 值                            |
+| ------------------ | ----------------------------- |
+| `MODEL_TYPE`       | `qwen`                        |
+| `N_TEST_QUESTIONS` | `5`                           |
+| `N_DP_ICL`         | `100`                         |
+| `N_SDP_ICL`        | `5`                           |
+| `GAUSSIAN_SIGMA`   | `1.0`                         |
+| `LAPLACE_SCALE`    | `1.0`（固定；**不是** `1/ε`） |
 
 這是唯一在 SDP 路徑實作 mapping + LLM2 重組的腳本。階段時間含 retrieve / LLM / total（baseline RAG 另含 TTFT）。範例產物：[`results/timing/timing_comparison_20260316_130922.json`](results/timing/timing_comparison_20260316_130922.json)。
 
@@ -632,16 +632,16 @@ python scripts/find_qualitative_cases.py --top-k 5 --model qwen
 
 已驗證 CLI（`python scripts/find_qualitative_cases.py --help`）：
 
-| 參數 | 預設 | 意義 |
-|------|------|------|
-| `--input` | 自動掃描 `results/sdp/val_5000/*.jsonl` | SDP JSONL 路徑 |
-| `--baseline` | 自動掃描 `results/baselines/multiseed/*.jsonl` | Baseline JSONL |
-| `--output-dir` | `outputs/full_results` | 輸出目錄 |
-| `--top-k` | `5` | 每類案例數 |
-| `--model` | 未設 | `qwen` 或 `llama` |
-| `--epsilon` | 未設 | 保留；目前 JSONL 無 ε 欄位 |
-| `--n` | 未設 | 保留；對已存答案做多數決 |
-| `--require-baseline` | 關閉 | 要求同時有對應 baseline 答案 |
+| 參數                 | 預設                                           | 意義                         |
+| -------------------- | ---------------------------------------------- | ---------------------------- |
+| `--input`            | 自動掃描 `results/sdp/val_5000/*.jsonl`        | SDP JSONL 路徑               |
+| `--baseline`         | 自動掃描 `results/baselines/multiseed/*.jsonl` | Baseline JSONL               |
+| `--output-dir`       | `outputs/full_results`                         | 輸出目錄                     |
+| `--top-k`            | `5`                                            | 每類案例數                   |
+| `--model`            | 未設                                           | `qwen` 或 `llama`            |
+| `--epsilon`          | 未設                                           | 保留；目前 JSONL 無 ε 欄位   |
+| `--n`                | 未設                                           | 保留；對已存答案做多數決     |
+| `--require-baseline` | 關閉                                           | 要求同時有對應 baseline 答案 |
 
 輸出：於指定目錄產生 `qualitative_candidates.{json,csv,md}`。
 
@@ -651,23 +651,23 @@ python scripts/find_qualitative_cases.py --top-k 5 --model qwen
 
 幾乎所有 runners 使用模組層常數。實際存在的重要參數：
 
-| 參數 | 位置 | 典型值 | 控制項目 |
-|------|------|--------|----------|
-| `N_ENSEMBLES` / `N_SDP_ICL` / `N_DP_ICL` | SDP runners / `test_total_time.py` | 100 / 5 / 100 | Ensemble 規模 \(N\) |
-| `K_SHOTS` | runners | 3 | 每次提示的示範數 |
-| `EPSILON_VALUES` | `analyze_sdp_voting.py` | 含 0.1、1.0、inf | 離線 DP 隱私預算 |
-| `MONTE_CARLO_TRIALS` | `analyze_sdp_voting.py` | 100 | DP 模擬重複次數 |
-| `NUM_WORKERS` | `analyze_sdp_voting.py` | `None` → CPU 核心數 | 並行 (N, ε) 工作 |
-| `MAX_CONCURRENT` | API runners | 4 | 非同步請求併發 |
-| `MAX_NEW_TOKENS` | runners | 50（SDP）／200–300（baselines） | 生成長度 |
-| `QWEN_MODEL_PATH` / `LLAMA_MODEL_PATH` | `run_ensemble_v1_opt.py` | HF model IDs | 本地模型 |
-| `LLMSTER_MODEL_NAME_*` / `MODEL_MAPPING` | API runners | 本機伺服器名稱 | 服務中模型 |
-| `API_BASE_URL` | API runners | `http://127.0.0.1:1234` | 推論伺服器 |
-| `SEEDS` | multiseed 腳本 | `[42,123,456,789,2026]` | RQ1 多種子 |
-| `RANDOM_SEED` / `random.seed(42)` | 資料 + runners | 42 | 可重現性 |
-| `NUM_QA_SAMPLES` | `create_qa_set.py` | 5000 | 效用集大小 |
-| `NUM_ATTACK_SAMPLES` | `create_attack_set.py` | 100 | 攻擊集大小 |
-| `OUTPUT_PATH` / task `task_name` | 多支腳本 | `data/` 或 `results/` 下 | 輸出位置 |
+| 參數                                     | 位置                               | 典型值                          | 控制項目            |
+| ---------------------------------------- | ---------------------------------- | ------------------------------- | ------------------- |
+| `N_ENSEMBLES` / `N_SDP_ICL` / `N_DP_ICL` | SDP runners / `test_total_time.py` | 100 / 5 / 100                   | Ensemble 規模 \(N\) |
+| `K_SHOTS`                                | runners                            | 3                               | 每次提示的示範數    |
+| `EPSILON_VALUES`                         | `analyze_sdp_voting.py`            | 含 0.1、1.0、inf                | 離線 DP 隱私預算    |
+| `MONTE_CARLO_TRIALS`                     | `analyze_sdp_voting.py`            | 100                             | DP 模擬重複次數     |
+| `NUM_WORKERS`                            | `analyze_sdp_voting.py`            | `None` → CPU 核心數             | 並行 (N, ε) 工作    |
+| `MAX_CONCURRENT`                         | API runners                        | 4                               | 非同步請求併發      |
+| `MAX_NEW_TOKENS`                         | runners                            | 50（SDP）／200–300（baselines） | 生成長度            |
+| `QWEN_MODEL_PATH` / `LLAMA_MODEL_PATH`   | `run_ensemble_v1_opt.py`           | HF model IDs                    | 本地模型            |
+| `LLMSTER_MODEL_NAME_*` / `MODEL_MAPPING` | API runners                        | 本機伺服器名稱                  | 服務中模型          |
+| `API_BASE_URL`                           | API runners                        | `http://127.0.0.1:1234`         | 推論伺服器          |
+| `SEEDS`                                  | multiseed 腳本                     | `[42,123,456,789,2026]`         | RQ1 多種子          |
+| `RANDOM_SEED` / `random.seed(42)`        | 資料 + runners                     | 42                              | 可重現性            |
+| `NUM_QA_SAMPLES`                         | `create_qa_set.py`                 | 5000                            | 效用集大小          |
+| `NUM_ATTACK_SAMPLES`                     | `create_attack_set.py`             | 100                             | 攻擊集大小          |
+| `OUTPUT_PATH` / task `task_name`         | 多支腳本                           | `data/` 或 `results/` 下        | 輸出位置            |
 
 沒有統一的 YAML／CLI 設定層。
 
@@ -692,7 +692,7 @@ python scripts/find_qualitative_cases.py --top-k 5 --model qwen
 [`evaluate_baselines.py`](evaluate_baselines.py) 每筆 ASR：
 
 \[
-\mathrm{ASR}=\min\left(\frac{\text{leakage score}}{\min(|\mathrm{prompted\_piis}|, 9)}, 1\right)
+\mathrm{ASR}=\min\left(\frac{\text{leakage score}}{\min(|\mathrm{prompted_piis}|, 9)}, 1\right)
 \]
 
 再對攻擊樣本平均（以百分比回報）。分母上限 9 約對應最多 3 個示範 × 最多 3 種 PII 欄位。
@@ -712,47 +712,47 @@ python scripts/find_qualitative_cases.py --top-k 5 --model qwen
 
 ### 論文報告參考值（標籤：論文報告）
 
-| 結果 | 數值 |
-|------|------|
-| Qwen Standard ICL Weighted ASR | 62.70% |
-| Qwen Sanitized ICL Weighted ASR | 0.00% |
-| Llama Standard ICL Weighted ASR | 81.93% |
-| Llama Sanitized ICL Weighted ASR | 0.01% |
-| Qwen SDP-ICL \(N=20,\epsilon=0.1\) F1 | 89.08% |
-| Qwen SDP-ICL \(N=5,\epsilon=0.1\) F1 | 88.16% |
-| 傳統 DP-ICL 單查詢延遲（\(N=100\)） | 39.93 s |
-| SDP-ICL 單查詢延遲（\(N=5\)） | 2.66 s |
+| 結果                                  | 數值    |
+| ------------------------------------- | ------- |
+| Qwen Standard ICL Weighted ASR        | 62.70%  |
+| Qwen Sanitized ICL Weighted ASR       | 0.00%   |
+| Llama Standard ICL Weighted ASR       | 81.93%  |
+| Llama Sanitized ICL Weighted ASR      | 0.01%   |
+| Qwen SDP-ICL \(N=20,\epsilon=0.1\) F1 | 89.08%  |
+| Qwen SDP-ICL \(N=5,\epsilon=0.1\) F1  | 88.16%  |
+| 傳統 DP-ICL 單查詢延遲（\(N=100\)）   | 39.93 s |
+| SDP-ICL 單查詢延遲（\(N=5\)）         | 2.66 s  |
 
 ### 與儲存庫產物一致
 
 來自 [`results/dp_analysis_report_5000.json`](results/dp_analysis_report_5000.json)（Qwen sanitized）：
 
-| \(N\) | \(\epsilon\) | EM (%) | F1 (%) |
-|------:|:-------------|-------:|-------:|
-| 5 | 0.1 | 78.05 | **88.16** |
-| 20 | 0.1 | 79.65 | **89.08** |
+| \(N\) | \(\epsilon\) | EM (%) |    F1 (%) |
+| ----: | :----------- | -----: | --------: |
+|     5 | 0.1          |  78.05 | **88.16** |
+|    20 | 0.1          |  79.65 | **89.08** |
 
 來自 [`results/timing/timing_comparison_20260316_130922.json`](results/timing/timing_comparison_20260316_130922.json)（Qwen，5 題）：
 
-| 方法 | 平均總延遲 (s) |
-|------|----------------:|
-| Baseline RAG | 1.77 |
-| DP-ICL \(N=100\) | **39.93** |
-| SDP-ICL \(N=5\) | **2.66** |
+| 方法             | 平均總延遲 (s) |
+| ---------------- | -------------: |
+| Baseline RAG     |           1.77 |
+| DP-ICL \(N=100\) |      **39.93** |
+| SDP-ICL \(N=5\)  |       **2.66** |
 
 ### 由已提交 singleseed baselines 重算（與部分論文 ASR 不完全相同）
 
 來自 [`results/baselines/singleseed/`](results/baselines/singleseed/)，使用本庫 Weighted ASR 程式：
 
-| 設定 | 指標 |
-|------|------|
-| Qwen Standard Attack | ASR 59.95% |
-| Qwen Sanitized Attack | ASR 0.00% |
-| Llama Standard Attack | ASR 58.76% |
-| Llama Sanitized Attack | ASR 0.00% |
-| Qwen Standard QA（500） | EM 79.40 / F1 88.64 |
-| Qwen Sanitized QA（500） | EM 79.60 / F1 89.02 |
-| Llama Standard QA（500） | EM 74.40 / F1 88.07 |
+| 設定                      | 指標                |
+| ------------------------- | ------------------- |
+| Qwen Standard Attack      | ASR 59.95%          |
+| Qwen Sanitized Attack     | ASR 0.00%           |
+| Llama Standard Attack     | ASR 58.76%          |
+| Llama Sanitized Attack    | ASR 0.00%           |
+| Qwen Standard QA（500）   | EM 79.40 / F1 88.64 |
+| Qwen Sanitized QA（500）  | EM 79.60 / F1 89.02 |
+| Llama Standard QA（500）  | EM 74.40 / F1 88.07 |
 | Llama Sanitized QA（500） | EM 74.00 / F1 86.77 |
 
 已提交 singleseed 中的 Llama Standard Attack ASR（**58.76%**）與論文報告的 **81.93%** **不一致**。除非以論文表格所用的精確多種子／提示設定重新產生，請將 81.93% 視為論文報告值。較舊攻擊迭代見 `results/qwen_old/`（部分被 gitignore）。
@@ -786,32 +786,3 @@ python scripts/find_qualitative_cases.py --top-k 5 --model qwen
 - 累積／長期隱私會計不完整。
 - 可重現性摩擦：絕對路徑、結果路徑漂移（`results/` vs `results/baselines/singleseed/`）、以及 `requirements.txt` 中的本機 `packaging` 釘版。
 - `requirements.txt` 為完整環境凍結，在原始 CUDA／conda 設定外可能較難安裝。
-
-## 引用
-
-```bibtex
-@thesis{sdpicl_placeholder,
-  title     = {SDP-ICL: A Dual-Layer Sanitization and Differential Privacy Framework for In-Context Learning in Enterprise Question Answering},
-  author    = {[AUTHOR NAME]},
-  year      = {[YEAR]},
-  school    = {[INSTITUTION]},
-  type      = {[Thesis type, e.g., Master's thesis]},
-  note      = {[DOI / URL / publisher fields unavailable — placeholders only]}
-}
-```
-
-開發期間參考文獻見 `references.bib`（此工作區快照中被 gitignore；執行程式不需要）。
-
-## 授權
-
-本儲存庫未找到授權檔。目前尚未指定授權條款。
-
-## 致謝／執行後端
-
-本儲存庫的模型推論實作透過：
-
-- **Hugging Face Transformers + bitsandbytes 4-bit**（`run_ensemble_v1*.py`）
-- **OpenAI 相容本機 HTTP API**（LM Studio / llmster 風格端點，用於 `run_sdp_inference_dgx_*.py`、`run_baselines_dgx_multiseed.py`、`test_total_time.py`）
-- 可選 **Google Gemini** 路徑（ensemble 腳本在設定 `GEMINI_API_KEY` 時）
-
-未發現以 vLLM 或 Ollama 作為主要實驗路徑。
